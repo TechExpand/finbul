@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "488573948959",
+    "project_id": "finbul-9f3c2",
+    "storage_bucket": "finbul-9f3c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488573948959:android:31517ad023dbf3759ff12a",
+        "android_client_info": {
+          "package_name": "com.finbul.fin_bul"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488573948959-1s6psgq28cn9emktovikkj2b30rf10od.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClnFZykFyFxuMAER0BuHbUYmHaKYtTovI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488573948959-1s6psgq28cn9emktovikkj2b30rf10od.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

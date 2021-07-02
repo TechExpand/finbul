@@ -46,7 +46,7 @@ android {
         applicationId "com.finbul.fin_bul"
         minSdkVersion 16
         multiDexEnabled true
-        targetSdkVersion 30
+        targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }

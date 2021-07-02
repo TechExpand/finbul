@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "488573948959-25ucpbg5s4t52ctge18v966tmve4i7u3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.finbul.fin_bul",
+            "certificate_hash": "dfa5db75021dc125efbcad79eb939cdb0a7233c6"
+          }
+        },
+        {
           "client_id": "488573948959-1s6psgq28cn9emktovikkj2b30rf10od.apps.googleusercontent.com",
           "client_type": 3
         }

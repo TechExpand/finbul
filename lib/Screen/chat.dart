@@ -596,7 +596,7 @@ class _ChatPageState extends State<ChatPage> {
               size: 25,
             ),
             onPressed: () {
-              data.makePhoneCall(98765436);
+              data.makePhoneCall(widget.user.userMobile);
     }
           ),
           Padding(

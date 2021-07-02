@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:fin_bul/Screen/Login.dart';
 import 'package:fin_bul/Screen/Profile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -42,13 +46,44 @@ class Draw extends StatelessWidget {
                 ),
               ),
               Divider(color: Color(0xFF332963), thickness: 2,),
+
               ListTile(
+                onTap: (){
+                  final FirebaseAuth auth = FirebaseAuth.instance;
+                  auth.signOut();
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return SignIn();
+                      },
+                      transitionsBuilder: (context, animation, secondaryAnimation, child){
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+                leading: Icon(Icons.logout, color: Colors.white,),
+                title: Text(
+                  'Logout',
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,  fontSize: 16,),
+                ),
+              ),
+              Divider(color: Color(0xFF332963),thickness: 2,),
+              ListTile(
+                onTap: (){
+                  exit(0);
+                },
                 leading: Icon(Icons.exit_to_app, color: Colors.white,),
                 title: Text(
                   'Exit',
                   style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,  fontSize: 16,),
                 ),
               ),
+
               Divider(color: Color(0xFF332963),thickness: 2,),
             ],
           ),

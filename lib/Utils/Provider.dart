@@ -24,7 +24,7 @@ class DataProvider extends ChangeNotifier {
   String businessName = '';
   String homeAddress = '';
   String officeAddress = '';
-  String otp = '';
+  String token = '';
   String firstName = '';
   String lastName = '';
   String artisanVendorChoice = '';
@@ -73,9 +73,8 @@ class DataProvider extends ChangeNotifier {
 
 
 // combine all otp textfield as one
-  setCombineOtpValue({cont1, cont2, cont3, cont4, cont5, cont6}) {
-    otp =
-        "${cont1.text}${cont2.text}${cont3.text}${cont4.text}${cont5.text}${cont6.text}";
+  setToken(value) {
+    token = value;
     notifyListeners();
   }
 

@@ -3,6 +3,7 @@ import 'package:fin_bul/Screen/SignUp.dart';
 import 'package:fin_bul/Utils/Provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:in_app_update/in_app_update.dart';
 import 'package:provider/provider.dart';
 
 import 'Login.dart';
@@ -21,11 +22,25 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    checkForUpdate();
   //  Provider.of<WebServices>(context, listen: false).initializeValues();
     Future.delayed(Duration(seconds: 2), go_to_home);
   }
 
   var uid = '';
+
+  Future<void> checkForUpdate() async {
+    InAppUpdate.checkForUpdate().then((info) {
+      if(info.updateAvailability == UpdateAvailability.updateAvailable){
+        InAppUpdate.performImmediateUpdate()
+            .catchError((e){
+          print(e);
+        });
+      }
+    }).catchError((e) {
+      print(e);
+    });
+  }
 
   go_to_home() async{
     final FirebaseAuth auth = FirebaseAuth.instance;
@@ -33,11 +48,6 @@ class SplashScreenState extends State<SplashScreen> {
     setState(() {
       uid = user==null?'':user.uid;
     });
-    print(uid);
-    print(uid);
-    print(uid);
-    print(uid);
-    print(uid);
 
     if(uid == null || uid == 'null' || uid.isEmpty) {
       return Navigator.pushReplacement(

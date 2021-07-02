@@ -1,6 +1,7 @@
 import 'package:fin_bul/Screen/Detail2.dart';
 import 'package:fin_bul/Screen/Details.dart';
 import 'package:fin_bul/Service/Network.dart';
+import 'package:fin_bul/Screen/SeeAllHome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:provider/provider.dart';
@@ -221,11 +222,29 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Spacer(),
-                    Text(
-                      'see all',
-                      style: TextStyle(
-                          color: Color(0xFFFEB904),
-                          fontWeight: FontWeight.bold),
+                    TextButton(
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) {
+                              return SeeAllHome();
+                            },
+                            transitionsBuilder: (context, animation, secondaryAnimation, child){
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'see all',
+                        style: TextStyle(
+                            color: Color(0xFFFEB904),
+                            fontWeight: FontWeight.bold),
+                      ),
                     )
                   ],
                 ),
@@ -314,21 +333,21 @@ class _HomeState extends State<Home> {
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              data2[index].symbol,
+                                              data2[index].symbol??'',
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.bold),
                                             ),
 
                                             Text(
-                                              data2[index].close.toString(),
+                                              data2[index].close??'',
                                               style: TextStyle(
                                                 color: Colors.white,
                                               ),
                                             ),
 
                                             Text(
-                                              '${data2[index].percent_change.toString()}%',
+                                              '${data2[index].percent_change??''}%',
                                               style: TextStyle(
                                                 color: Colors.white,
                                               ),
@@ -337,16 +356,16 @@ class _HomeState extends State<Home> {
                                             Container(
                                               decoration: BoxDecoration(
                                                   color: data2[index].change.toString().contains('-')? Colors.red
-                                                      .withOpacity(0.2):Color(0xFF26D375)
+                                                      .withOpacity(0.2):data2[index].change==null?null:Color(0xFF26D375)
                                                       .withOpacity(0.2),
                                                   borderRadius:
                                                       BorderRadius.circular(2)),
                                               child: Padding(
                                                 padding:
                                                     const EdgeInsets.all(2.0),
-                                                child: Text('${data2[index].change.toString()}',
+                                                child: Text('${data2[index].change??''}',
                                                     style: TextStyle(
-                                                      color: data2[index].change.toString().contains('-')?Colors.red:Color(0xFF26D375),
+                                                      color: data2[index].change.toString().contains('-')?Colors.red: data2[index].change==null?null:Color(0xFF26D375),
                                                       fontWeight: FontWeight.bold,
                                                     )),
                                               ),

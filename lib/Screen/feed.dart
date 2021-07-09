@@ -8,6 +8,7 @@ import 'package:fin_bul/Screen/comment.dart';
 import 'package:fin_bul/Service/firebase.dart';
 import 'package:fin_bul/Utils/Provider.dart';
 import 'package:fin_bul/Utils/utils.dart';
+import 'package:fin_bul/Widgets/Switch.dart';
 import 'package:fin_bul/Widgets/icons.dart';
 import 'package:fin_bul/Widgets/photoView.dart';
 import 'package:flutter/cupertino.dart';
@@ -212,32 +213,43 @@ class FeedState extends State<Feed> {
                                               icon: Icon(FeatherIcons.camera),
                                               color: Colors.black54,
                                             ),
-                                            ToggleSwitch(
-                                              minWidth: 60.0,
-                                              minHeight: 30.0,
-                                              initialLabelIndex: 1,
-                                              activeBgColor: [Colors.green],
-                                              activeFgColor: Colors.white,
-                                              inactiveBgColor: Colors.grey,
-                                              inactiveFgColor: Colors.grey[900],
-                                              totalSwitches: 3,
-                                              icons: [
-                                                MyFlutterApp.bear,
-                                                Icons.sentiment_neutral,
-                                                MyFlutterApp.bull
-                                              ],
-                                              // labels: ['America', 'Canada', 'Mexico'],
-                                              onToggle: (index) {
-                                                if (index == 0) {
+                                            CustomSlider(
+                                              valueChanged: (v) {
+                                                if (v == Status.right) {
                                                   label = 'Bear';
-                                                } else if (index == 1) {
+                                                } else if (v == Status.none) {
                                                   label = 'None';
                                                 } else {
                                                   label = 'Bull';
                                                 }
-                                                print('switched to: $label');
                                               },
                                             ),
+                                            // ToggleSwitch(
+                                            //   minWidth: 60.0,
+                                            //   minHeight: 30.0,
+                                            //   initialLabelIndex: 1,
+                                            //   activeBgColor: [Colors.green],
+                                            //   activeFgColor: Colors.white,
+                                            //   inactiveBgColor: Colors.grey,
+                                            //   inactiveFgColor: Colors.grey[900],
+                                            //   totalSwitches: 3,
+                                            //   icons: [
+                                            //     MyFlutterApp.bear,
+                                            //     Icons.sentiment_neutral,
+                                            //     MyFlutterApp.bull
+                                            //   ],
+                                            //   // labels: ['America', 'Canada', 'Mexico'],
+                                            //   onToggle: (index) {
+                                            //     if (index == 0) {
+                                            //       label = 'Bear';
+                                            //     } else if (index == 1) {
+                                            //       label = 'None';
+                                            //     } else {
+                                            //       label = 'Bull';
+                                            //     }
+                                            //     print('switched to: $label');
+                                            //   },
+                                            // ),
                                             SizedBox(
                                               width: 10,
                                             ),
@@ -393,8 +405,6 @@ class FeedState extends State<Feed> {
                                                               FontWeight.bold))));
                                         } else
                                           return Container(
-                                              padding: EdgeInsets.only(
-                                                  left: 20, right: 20),
                                               child: ListView.builder(
                                                 padding: EdgeInsets.only(top: 15),
                                                 shrinkWrap: true,
@@ -402,8 +412,11 @@ class FeedState extends State<Feed> {
                                                 itemCount: verifiedPosts.length,
                                                 itemBuilder: (context, index1) {
                                                   return Container(
+                                                    color: index1.isEven
+                                                        ? Color(0xFF403477)
+                                                        : Color(0xFF372C6A),
                                                     padding: EdgeInsets.only(
-                                                        top: 15, bottom: 5),
+                                                        top: 15, bottom: 5, left: 20, right: 20),
                                                     child: Column(
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
@@ -663,8 +676,11 @@ class FeedState extends State<Feed> {
                                                                             8.0),
                                                                         child: Row(
                                                                           children: [
-                                                                            InkWell(
-                                                                              onTap:
+                                                                          
+                                                                              Row(
+                                                                                children: [
+                                                                                  IconButton(
+                                                                                    onPressed:
                                                                                   () {
                                                                                 Navigator.push(
                                                                                     context,
@@ -680,77 +696,75 @@ class FeedState extends State<Feed> {
          },));
                                                                                 //  _Comment(verifiedPosts[index].id);
                                                                               },
-                                                                              child:
-                                                                              Row(
-                                                                                children: [
-                                                                                  Icon(
-                                                                                    Icons.mode_comment_outlined,
+                                                                                   icon:Icon( Icons.mode_comment_outlined,
                                                                                     color:
                                                                                     Colors.white,
                                                                                     size:
                                                                                     18,
+                                                                                   )
                                                                                   ),
                                                                                   Text(
                                                                                       verifiedPosts[index1].comment,
                                                                                       style: TextStyle(color: Colors.white)),
                                                                                 ],
                                                                               ),
-                                                                            ),
+                                                                            
 
                                                                             SizedBox(
                                                                               width: 20,
                                                                             ),
-                                                                            InkWell(
-                                                                              onTap:
+                                                                            
+                                                                              Row(
+                                                                                 
+                                                                                children: [
+                                                                                  IconButton(
+                                                                                    onPressed:
                                                                                   () {
                                                                                 FirebaseApi.thumbUpPost(
                                                                                     number:
                                                                                     int.parse(verifiedPosts[index1].thumbup) + 1,
                                                                                     id: verifiedPosts[index1].id);
                                                                               },
-                                                                              child:
-                                                                              Row(
-                                                                                children: [
-                                                                                  Icon(
-                                                                                    FeatherIcons.thumbsUp,
+
+                                                                                   icon: Icon(FeatherIcons.thumbsUp,
                                                                                     color:
                                                                                     Colors.white,
                                                                                     size:
                                                                                     18,
-                                                                                  ),
+                                                                                  )),
                                                                                   Text(
                                                                                       verifiedPosts[index1].thumbup,
                                                                                       style: TextStyle(color: Colors.white)),
                                                                                 ],
                                                                               ),
-                                                                            ),
+                                                                            
                                                                             SizedBox(
                                                                               width: 20,
                                                                             ),
-                                                                            InkWell(
-                                                                              onTap:
+                                                                            
+                                                                              Row(
+                                                                                children: [
+                                                                                  IconButton(
+                                                                                    onPressed:
                                                                                   () {
                                                                                 FirebaseApi.thumbDownPost(
                                                                                     number:
                                                                                     int.parse(verifiedPosts[index1].thumbdown) + 1,
                                                                                     id: verifiedPosts[index1].id);
                                                                               },
-                                                                              child:
-                                                                              Row(
-                                                                                children: [
-                                                                                  Icon(
+                                                                                    icon:Icon(
                                                                                     FeatherIcons.thumbsDown,
                                                                                     color:
                                                                                     Colors.white,
                                                                                     size:
                                                                                     18,
-                                                                                  ),
+                                                                                  )),
                                                                                   Text(
                                                                                       verifiedPosts[index1].thumbdown,
                                                                                       style: TextStyle(color: Colors.white)),
                                                                                 ],
                                                                               ),
-                                                                            ),
+                                                                            
                                                                             SizedBox(
                                                                               width: 20,
                                                                             ),
@@ -777,31 +791,32 @@ class FeedState extends State<Feed> {
                                                                               width: 20,
                                                                             ),
 
-                                                                            InkWell(
-                                                                              onTap:
+                                                                           
+                                                                              Row(
+                                                                                children: [
+                                                                                  IconButton(
+                                                                                    onPressed:
                                                                                   () {
                                                                                 FlutterClipboard.copy(verifiedPosts[index1]
                                                                                     .message).then(( value ) =>  scaffoldkey.currentState.showSnackBar(SnackBar(content:Text('copied'))));
                                                                               },
-                                                                              child:
-                                                                              Row(
-                                                                                children: [
-                                                                                  Icon(
+                                                                                    icon:Icon(
                                                                                     Icons
                                                                                         .copy,
                                                                                     color: Colors
                                                                                         .white,
                                                                                     size: 18,
-                                                                                  ),
+                                                                                  ))
+                                                                                  ,
                                                                                 ],
                                                                               ),
-                                                                            ),
+                                                                            
                                                                           ],
                                                                         ),
                                                                       ),
-                                                                      subComment(
-                                                                          data: verifiedPosts[
-                                                                              index1], scaffoldkey: scaffoldkey,)
+                                                                      // subComment(
+                                                                      //     data: verifiedPosts[
+                                                                      //         index1], scaffoldkey: scaffoldkey,)
                                                                     ],
                                                                   );
                                                                 }),

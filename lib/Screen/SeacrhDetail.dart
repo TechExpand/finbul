@@ -1082,16 +1082,13 @@ class SearchDetailsState extends State<SearchDetails>
                                                                                             ],
                                                                                           ),
                                                                                         ),
-                                                                                        Consumer<DataProvider>(
-                                                                                            // selector: (_,
-                                                                                            //         provider) =>
-                                                                                            //     provider
-                                                                                            //         .selected,
-                                                                                            builder: (context, selected, child) {
-                                                                                          return
-                                                                                              subComment(data: verifiedPosts[index1]);
+                                                                                        // Consumer<DataProvider>(
+                                                                                            
+                                                                                        //     builder: (context, selected, child) {
+                                                                                        //   return
+                                                                                        //       subComment(data: verifiedPosts[index1]);
 
-                                                                                        }),
+                                                                                        // }),
                                                                                       ],
                                                                                     )),
                                                                                   ],

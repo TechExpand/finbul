@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fin_bul/Screen/PostImage.dart';
 import 'package:fin_bul/Screen/chat.dart';
 import 'package:fin_bul/Widgets/Drawer.dart';
+import 'package:fin_bul/Widgets/Switch.dart';
 import 'package:fin_bul/Widgets/icons.dart';
 import 'package:fin_bul/Widgets/photoView.dart';
 import 'package:fin_bul/Service/firebase.dart';
@@ -353,32 +354,43 @@ scaffoldkey.currentState.openDrawer();
                                                                       icon: Icon(FeatherIcons.camera),
                                                                       color: Colors.black54,
                                                                     ),
-                                                                    ToggleSwitch(
-                                                                      minWidth: 60.0,
-                                                                      minHeight: 30.0,
-                                                                      initialLabelIndex: 1,
-                                                                      activeBgColor: [Colors.green],
-                                                                      activeFgColor: Colors.white,
-                                                                      inactiveBgColor: Colors.grey,
-                                                                      inactiveFgColor: Colors.grey[900],
-                                                                      totalSwitches: 3,
-                                                                      icons: [
-                                                                        MyFlutterApp.bear,
-                                                                        Icons.sentiment_neutral,
-                                                                        MyFlutterApp.bull
-                                                                      ],
-                                                                      // labels: ['America', 'Canada', 'Mexico'],
-                                                                      onToggle: (index) {
-                                                                        if (index == 0) {
+                                                                    CustomSlider(
+                                                                      valueChanged: (v) {
+                                                                        if (v == Status.right) {
                                                                           label = 'Bear';
-                                                                        } else if (index == 1) {
+                                                                        } else if (v == Status.none) {
                                                                           label = 'None';
                                                                         } else {
                                                                           label = 'Bull';
                                                                         }
-                                                                        print('switched to: $label');
                                                                       },
                                                                     ),
+                                                                    // ToggleSwitch(
+                                                                    //   minWidth: 60.0,
+                                                                    //   minHeight: 30.0,
+                                                                    //   initialLabelIndex: 1,
+                                                                    //   activeBgColor: [Colors.green],
+                                                                    //   activeFgColor: Colors.white,
+                                                                    //   inactiveBgColor: Colors.grey,
+                                                                    //   inactiveFgColor: Colors.grey[900],
+                                                                    //   totalSwitches: 3,
+                                                                    //   icons: [
+                                                                    //     MyFlutterApp.bear,
+                                                                    //     Icons.sentiment_neutral,
+                                                                    //     MyFlutterApp.bull
+                                                                    //   ],
+                                                                    //   // labels: ['America', 'Canada', 'Mexico'],
+                                                                    //   onToggle: (index) {
+                                                                    //     if (index == 0) {
+                                                                    //       label = 'Bear';
+                                                                    //     } else if (index == 1) {
+                                                                    //       label = 'None';
+                                                                    //     } else {
+                                                                    //       label = 'Bull';
+                                                                    //     }
+                                                                    //     print('switched to: $label');
+                                                                    //   },
+                                                                    // ),
                                                                     SizedBox(
                                                                       width: 10,
                                                                     ),

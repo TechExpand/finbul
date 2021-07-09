@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:fin_bul/Service/firebase.dart';
+import 'package:fin_bul/Widgets/Switch.dart';
 import 'package:fin_bul/Widgets/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -37,41 +38,54 @@ class PostImage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          StreamBuilder<Object>(
-            stream: null,
-            builder: (context, snapshot) {
-              return ToggleSwitch(
-                minWidth: MediaQuery.of(context).size.width / 3,
-                minHeight: 40.0,
-                initialLabelIndex: 1,
-                activeBgColor: [Colors.green],
-                activeFgColor: Colors.white,
-                inactiveBgColor: Colors.grey,
-                inactiveFgColor: Colors.grey[900],
-                cornerRadius: 0.0,
-                totalSwitches: 3,
-                icons: [
-                  MyFlutterApp.bear,
-                  Icons.sentiment_neutral,
-                  MyFlutterApp.bull
-                ],
-                // labels: ['America', 'Canada', 'Mexico'],
-                onToggle: (index) {
-                  if (index == 0) {
-                    label = 'Bear';
-                  } else if (index == 1) {
-                    label = 'None';
-                  } else {
-                    label = 'Bull';
-                  }
-                  print('switched to: $label');
-                },
-              );
-            }
+
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: CustomSlider(
+              valueChanged: (v) {
+
+                if (v == Status.right) {
+                  label = 'Bear';
+                } else if (v == Status.none) {
+                  label = 'None';
+                } else {
+                  label = 'Bull';
+                }
+                print(label);
+              },
+            ),
           ),
+              //   ToggleSwitch(
+              //   minWidth: MediaQuery.of(context).size.width / 3,
+              //   minHeight: 40.0,
+              //   initialLabelIndex: 1,
+              //   activeBgColor: [Colors.green],
+              //   activeFgColor: Colors.white,
+              //   inactiveBgColor: Colors.grey,
+              //   inactiveFgColor: Colors.grey[900],
+              //   cornerRadius: 0.0,
+              //   totalSwitches: 3,
+              //   icons: [
+              //     MyFlutterApp.bear,
+              //     Icons.sentiment_neutral,
+              //     MyFlutterApp.bull
+              //   ],
+              //   // labels: ['America', 'Canada', 'Mexico'],
+              //   onToggle: (index) {
+              //     if (index == 0) {
+              //       label = 'Bear';
+              //     } else if (index == 1) {
+              //       label = 'None';
+              //     } else {
+              //       label = 'Bull';
+              //     }
+              //     print('switched to: $label');
+              //   },
+              // ),
+
           Container(
             color: Colors.black54,
-            height: 100,
+            height: 112.5,
             width: MediaQuery.of(context).size.width,
             child: TextField(
               controller: _controller,

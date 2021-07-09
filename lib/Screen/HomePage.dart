@@ -9,6 +9,7 @@ import 'package:fin_bul/Screen/chat.dart';
 import 'package:fin_bul/Screen/feed.dart';
 import 'package:fin_bul/Utils/Provider.dart';
 import 'package:fin_bul/Widgets/Drawer.dart';
+import 'package:fin_bul/Widgets/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:provider/provider.dart';
@@ -28,16 +29,11 @@ class _HomePageState extends State<HomePage>
 
   final scafoldKey = GlobalKey<ScaffoldState>();
 
-
-
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 5);
   }
-
-
-
 
   @override
   void dispose() {
@@ -52,7 +48,7 @@ class _HomePageState extends State<HomePage>
       key: scafoldKey,
       backgroundColor: Color(0xFF372C6A),
       body: WillPopScope(
-        onWillPop: (){
+        onWillPop: () {
           return showDialog(
               context: context,
               builder: (ctx) {
@@ -105,7 +101,7 @@ class _HomePageState extends State<HomePage>
                                         border: Border.all(
                                             color: Color(0xFF372C6A)),
                                         borderRadius:
-                                        BorderRadius.circular(26)),
+                                            BorderRadius.circular(26)),
                                     child: FlatButton(
                                       onPressed: () {
                                         return exit(0);
@@ -113,12 +109,12 @@ class _HomePageState extends State<HomePage>
                                       color: Color(0xFF372C6A),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
-                                          BorderRadius.circular(26)),
+                                              BorderRadius.circular(26)),
                                       padding: EdgeInsets.all(0.0),
                                       child: Ink(
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                            BorderRadius.circular(26)),
+                                                BorderRadius.circular(26)),
                                         child: Container(
                                           constraints: BoxConstraints(
                                               maxWidth: 190.0, minHeight: 53.0),
@@ -146,7 +142,7 @@ class _HomePageState extends State<HomePage>
                                         border: Border.all(
                                             color: Color(0xFF372C6A)),
                                         borderRadius:
-                                        BorderRadius.circular(26)),
+                                            BorderRadius.circular(26)),
                                     child: FlatButton(
                                       onPressed: () {
                                         Navigator.pop(context);
@@ -154,12 +150,12 @@ class _HomePageState extends State<HomePage>
                                       color: Color(0xFF372C6A),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
-                                          BorderRadius.circular(26)),
+                                              BorderRadius.circular(26)),
                                       padding: EdgeInsets.all(0.0),
                                       child: Ink(
                                         decoration: BoxDecoration(
                                             borderRadius:
-                                            BorderRadius.circular(26)),
+                                                BorderRadius.circular(26)),
                                         child: Container(
                                           constraints: BoxConstraints(
                                               maxWidth: 190.0, minHeight: 53.0),
@@ -193,7 +189,10 @@ class _HomePageState extends State<HomePage>
                 children: [
                   Container(
                     margin: EdgeInsets.only(top: 0),
-                    child: Image.asset('assets/LogoYellow.png', width: 150,),
+                    child: Image.asset(
+                      'assets/LogoYellow.png',
+                      width: 150,
+                    ),
                   ),
                   Spacer(),
                   IconButton(
@@ -216,7 +215,8 @@ class _HomePageState extends State<HomePage>
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) {
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) {
                             return SearchPage();
                           },
                           transitionsBuilder:
@@ -302,6 +302,7 @@ class _HomePageState extends State<HomePage>
                   TabBar(
                     controller: _tabController,
                     unselectedLabelColor: Color(0xFF705FBB),
+                    labelColor:  Color(0xFFFEB904),
                     indicatorColor: Color(0xFFFEB904),
                     isScrollable: true,
                     tabs: [

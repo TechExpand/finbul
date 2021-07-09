@@ -615,7 +615,7 @@ FirebaseApi.updateImage(id, selectedImage, context);
                                                                                     ],
                                                                                   ),
                                                                                 ),
-                                                                                subComment(data: verifiedPosts[index1], scaffoldkey: scafoldKey,)
+                                                                                // subComment(data: verifiedPosts[index1], scaffoldkey: scafoldKey,)
                                                                               ],
                                                                             );
                                                                           }),

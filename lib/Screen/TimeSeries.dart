@@ -113,12 +113,12 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                 child: Container(
                   height: 200,
                   child: SfCartesianChart(
-                    indicators: <TechnicalIndicators<TimeSeriesPrice, dynamic>>[
-                        BollingerBandIndicator<TimeSeriesPrice, dynamic>(
-                          seriesName: 'App',
-                          period: 3,
-                        )
-                      ],
+                    // indicators: <TechnicalIndicators<TimeSeriesPrice, dynamic>>[
+                    //     BollingerBandIndicator<TimeSeriesPrice, dynamic>(
+                    //       seriesName: 'App',
+                    //       period: 3,
+                    //     )
+                    //   ],
                     plotAreaBorderWidth: 0,
                     primaryXAxis: DateTimeAxis(
                         dateFormat: DateFormat.MMM(),

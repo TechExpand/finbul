@@ -147,19 +147,19 @@ class _AudioAppState extends State<AudioApp> {
             if (duration != null)
               SliderTheme(
                 data: SliderTheme.of(context).copyWith(
-                  activeTrackColor: Color(0xFF372C6A),
-                  inactiveTrackColor: Color(0xFF372C6A),
+                  activeTrackColor: Color( 0xFFFEB904),
+                  inactiveTrackColor:Color( 0xFFFEB904),
                   trackShape: RoundedRectSliderTrackShape(),
                   trackHeight: 5.0,
                   thumbShape:
                   RoundSliderThumbShape(enabledThumbRadius: 12.0),
                   thumbColor: Color(0xFF5e5780),
-                  overlayColor: Color(0xFF372C6A),
+                  overlayColor:Color( 0xFFFEB904),
                   overlayShape:
                   RoundSliderOverlayShape(overlayRadius: 15.0),
                   tickMarkShape: RoundSliderTickMarkShape(),
-                  activeTickMarkColor: Color(0xFF372C6A),
-                  inactiveTickMarkColor:Color(0xFF372C6A),
+                  activeTickMarkColor: Color( 0xFFFEB904),
+                  inactiveTickMarkColor:Color( 0xFFFEB904),
                   valueIndicatorShape: PaddleSliderValueIndicatorShape(),
                   valueIndicatorColor: Color(0xFF5e5780),
                   valueIndicatorTextStyle: TextStyle(
@@ -177,19 +177,19 @@ class _AudioAppState extends State<AudioApp> {
             else if (duration == null)
               SliderTheme(
                 data: SliderTheme.of(context).copyWith(
-                  activeTrackColor: Color(0xFF372C6A),
-                  inactiveTrackColor: Color(0xFF372C6A),
+                  activeTrackColor: Color( 0xFFFEB904),
+                  inactiveTrackColor:Color( 0xFFFEB904),
                   trackShape: RoundedRectSliderTrackShape(),
                   trackHeight: 5.0,
                   thumbShape:
                   RoundSliderThumbShape(enabledThumbRadius: 12.0),
                   thumbColor: Color(0xFF5e5780),
-                  overlayColor: Color(0xFF372C6A),
+                  overlayColor:Color( 0xFFFEB904),
                   overlayShape:
                   RoundSliderOverlayShape(overlayRadius: 15.0),
                   tickMarkShape: RoundSliderTickMarkShape(),
-                  activeTickMarkColor: Color(0xFF372C6A),
-                  inactiveTickMarkColor:Color(0xFF372C6A),
+                  activeTickMarkColor: Color( 0xFFFEB904),
+                  inactiveTickMarkColor:Color( 0xFFFEB904),
                   valueIndicatorShape: PaddleSliderValueIndicatorShape(),
                   valueIndicatorColor: Color(0xFF5e5780),
                   valueIndicatorTextStyle: TextStyle(

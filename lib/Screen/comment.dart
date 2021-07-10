@@ -1,6 +1,7 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fin_bul/Screen/PostImage.dart';
+import 'package:fin_bul/Screen/SearchPage.dart';
 import 'package:fin_bul/Screen/chat.dart';
 import 'package:fin_bul/Widgets/Drawer.dart';
 import 'package:fin_bul/Widgets/Switch.dart';
@@ -16,7 +17,7 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:toggle_switch/toggle_switch.dart';
+
 
 class Comment extends StatefulWidget {
   var data;
@@ -100,56 +101,77 @@ scaffoldkey.currentState.openDrawer();
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Hero(
                 tag: 'searchButton',
-                child: AnimatedContainer(
-                  duration: Duration(milliseconds: 500),
-                  height: 50,
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.only(left: 12),
-                  margin: const EdgeInsets.only(bottom: 15, top: 15),
-                  decoration: BoxDecoration(
-                      color: Color(0xFFFFFFFF),
-                      border: Border.all(color: Color(0xFFF1F1FD)),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black54.withOpacity(0.5),
-                            blurRadius: 15.0,
-                            offset: Offset(0.3, 1.0))
-                      ],
-                      borderRadius: BorderRadius.all(Radius.circular(5))),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: Icon(
-                          FeatherIcons.search,
-                          color: Color(0xFF555555),
-                          size: 20,
-                        ),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder:
+                            (context, animation, secondaryAnimation) {
+                          return SearchPage();
+                        },
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          return FadeTransition(
+                            opacity: animation,
+                            child: child,
+                          );
+                        },
                       ),
-                      Expanded(
-                        child: TextFormField(
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Color(0xFF270F33),
-                              fontWeight: FontWeight.w600),
-                          onChanged: (value) {
-                            setState(() {
-                              // searchvalue = value;
-                              // SearchResult(searchvalue);
-                            });
-                          },
-                          decoration: InputDecoration.collapsed(
-                            hintText: 'Find stocks, people and more',
-                            hintStyle: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w600),
-                            focusColor: Color(0xFF2B1137),
-                            fillColor: Color(0xFF2B1137),
-                            hoverColor: Color(0xFF2B1137),
+                    );
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 500),
+                    height: 50,
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.only(left: 12),
+                    margin: const EdgeInsets.only(bottom: 15, top: 15),
+                    decoration: BoxDecoration(
+                        color: Color(0xFFFFFFFF),
+                        border: Border.all(color: Color(0xFFF1F1FD)),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black54.withOpacity(0.5),
+                              blurRadius: 15.0,
+                              offset: Offset(0.3, 1.0))
+                        ],
+                        borderRadius: BorderRadius.all(Radius.circular(5))),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Icon(
+                            FeatherIcons.search,
+                            color: Color(0xFF555555),
+                            size: 20,
                           ),
                         ),
-                      ),
-                    ],
+                        Expanded(
+                          child: TextFormField(
+                            enabled: false,
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Color(0xFF270F33),
+                                fontWeight: FontWeight.w600),
+                            onChanged: (value) {
+                              setState(() {
+                                // searchvalue = value;
+                                // SearchResult(searchvalue);
+                              });
+                            },
+                            decoration: InputDecoration.collapsed(
+                              hintText: 'Find stocks, people and more',
+                              hintStyle: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600),
+                              focusColor: Color(0xFF2B1137),
+                              fillColor: Color(0xFF2B1137),
+                              hoverColor: Color(0xFF2B1137),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 )),
           ),
@@ -449,6 +471,7 @@ scaffoldkey.currentState.openDrawer();
                                                                     var provider = Provider.of<DataProvider>(context, listen: false);
 
                                                                     FirebaseApi.uploadpostComment(
+                                                                      verifiedProfile[0].number,
                                                                         id: verifiedProfile[0].userid,
                                                                         message: _controller.text,
                                                                         name: verifiedProfile[0].name,
@@ -672,53 +695,65 @@ scaffoldkey.currentState.openDrawer();
                                                     ),
                                                     Row(
                                                       children: [
-                                                        SizedBox(
-                                                          width: 60,
-                                                        ),
+
                                                         Expanded(
                                                             child: Column(
                                                               crossAxisAlignment:
                                                               CrossAxisAlignment.start,
                                                               children: [
-                                                                Text(
-                                                                  widget.data.message,
-                                                                  style: TextStyle(
-                                                                      color: Colors.white),
-                                                                  textAlign: TextAlign.left,
+                                                                Row(
+                                                                  children: [
+                                                                    SizedBox(
+                                                                      width: 60,
+                                                                    ),
+                                                                    Text(
+                                                                      widget.data.message,
+                                                                      style: TextStyle(
+                                                                          color: Colors.white),
+                                                                      textAlign: TextAlign.left,
+                                                                    ),
+                                                                  ],
                                                                 ),
                                                                 Padding(
                                                                   padding:
                                                                   const EdgeInsets.only(
                                                                       top: 8.0),
-                                                                  child: Row(
+                                                                  child:  Divider(),
+                                                                ),
+                                                               Row(
                                                                     children: [
+                                                                      SizedBox(
+                                                                        width: 50,
+                                                                      ),
                                                                        Row(
                                                                           children: [
-                                                                            Icon(
-                                                                              Icons
+                                                                            IconButton(
+                                                                            icon:Icon(  Icons
                                                                                   .mode_comment_outlined,
                                                                               color: Colors.white,
                                                                               size: 18,
                                                                             ),
+                                                                            onPressed: null,),
                                                                             Text(snapshots1.data['comment'],
                                                                                 style: TextStyle(
                                                                                     color: Colors
                                                                                         .white)),
                                                                           ],
                                                                         ),
+
                                                                       SizedBox(
                                                                         width: 20,
                                                                       ),
-                                                                      InkWell(
-                                                                        onTap:(){
-                                                                          FirebaseApi.thumbUpPost(number:int.parse(snapshots1.data['uplike'])+1,id:widget.data.id);
-                                                                        },
-                                                                        child: Row(
+                                                                       Row(
                                                                           children: [
-                                                                            Icon(
-                                                                              FeatherIcons.thumbsUp,
+                                                                            IconButton(
+                                                                         icon: Icon(  FeatherIcons.thumbsUp,
                                                                               color: Colors.white,
                                                                               size: 18,
+                                                                            ),
+                                                                            onPressed: (){
+                                                                              FirebaseApi.thumbUpPost(number:int.parse(snapshots1.data['uplike'])+1,id:widget.data.id);
+                                                                            },
                                                                             ),
                                                                             Text(
                                                                                 snapshots1.data['uplike'],
@@ -727,22 +762,22 @@ scaffoldkey.currentState.openDrawer();
                                                                                         .white)),
                                                                           ],
                                                                         ),
-                                                                      ),
+
 
                                                                       SizedBox(
                                                                         width: 20,
                                                                       ),
-                                                                      InkWell(
-                                                                        onTap:(){
-                                                                          FirebaseApi.thumbDownPost(number:int.parse(snapshots1.data['downlike'])+1,id:widget.data.id);
-                                                                        },
-                                                                        child: Row(
+                                                                       Row(
                                                                           children: [
-                                                                            Icon(
-                                                                              FeatherIcons.thumbsDown,
+
+                                                                            IconButton(
+                                                                           icon: Icon(FeatherIcons.thumbsDown,
                                                                               color: Colors.white,
                                                                               size: 18,
                                                                             ),
+                                                                            onPressed: (){
+                                                                              FirebaseApi.thumbDownPost(number:int.parse(snapshots1.data['downlike'])+1,id:widget.data.id);
+                                                                            },),
                                                                             Text(
                                                                                 snapshots1.data['downlike'],
                                                                                 style: TextStyle(
@@ -750,6 +785,27 @@ scaffoldkey.currentState.openDrawer();
                                                                                         .white)),
                                                                           ],
                                                                         ),
+
+
+                                                                      SizedBox(
+                                                                        width: 20,
+                                                                      ),
+
+
+                                                                        Row(
+                                                                          children: [
+                                                                            IconButton(
+                                                                             icon:Icon( Icons
+                                                                                  .copy,
+                                                                              color: Colors
+                                                                                  .white,
+                                                                              size: 18,
+                                                                            ),
+                                                                            onPressed: (){
+                                                                              FlutterClipboard.copy(snapshots1.data['message'].toString()).then(( value ) =>  scaffoldkey.currentState.showSnackBar(SnackBar(content:Text('copied'))));
+                                                                            },
+                                                                            ),
+                                                                          ],
                                                                       ),
                                                                       SizedBox(
                                                                         width: 20,
@@ -767,34 +823,13 @@ scaffoldkey.currentState.openDrawer();
                                                                               .green
                                                                               :Colors
                                                                               .white,
-                                                                          size: 18,
-                                                                        ),
-                                                                      ),
-                                                                      SizedBox(
-                                                                        width: 20,
-                                                                      ),
-
-                                                                      InkWell(
-                                                                        onTap:
-                                                                            () {
-                                                                          FlutterClipboard.copy(snapshots1.data['message']).then(( value ) =>  scaffoldkey.currentState.showSnackBar(SnackBar(content:Text('copied'))));
-                                                                        },
-                                                                        child:
-                                                                        Row(
-                                                                          children: [
-                                                                            Icon(
-                                                                              Icons
-                                                                                  .copy,
-                                                                              color: Colors
-                                                                                  .white,
-                                                                              size: 18,
-                                                                            ),
-                                                                          ],
+                                                                          size: 24,
                                                                         ),
                                                                       ),
                                                                     ],
                                                                   ),
-                                                                ),
+
+                                                                Divider(),
                                                                 StreamBuilder(
                                                                   stream: FirebaseApi
                                                                       .postCommentStream(
@@ -870,6 +905,7 @@ scaffoldkey.currentState.openDrawer();
 
 
                                                                                     return  Container(
+
                                                                                       padding: EdgeInsets.only(top: 8, bottom: 5),
                                                                                       child: Column(
                                                                                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -910,10 +946,53 @@ scaffoldkey.currentState.openDrawer();
                                                                                                 ],
                                                                                               ),
                                                                                               Spacer(),
-                                                                                              Icon(
-                                                                                                Icons.more_horiz_rounded,
-                                                                                                color: Colors.white,
-                                                                                              ),
+                                                                                              PopupMenuButton(
+                                                                                                padding: EdgeInsets.all(0),
+                                                                                                elevation: 9,
+                                                                                                icon: Icon(
+                                                                                                  Icons.more_horiz_rounded,
+                                                                                                  color: Colors.white,
+                                                                                                ),
+                                                                                                onSelected: (result) {
+                                                                                                  FocusScopeNode currentFocus = FocusScope.of(context);
+                                                                                                  if (!currentFocus.hasPrimaryFocus) {
+                                                                                                    currentFocus.unfocus();
+                                                                                                  }
+                                                                                                  FirebaseApi.addUserChat(
+                                                                                                    urlAvatar2:  verifiedProfile[0].picture,
+                                                                                                    name2: verifiedProfile[0].name,
+                                                                                                    idArtisan: provide.firebaseUserId,
+                                                                                                    artisanMobile:verifiedProfile[0].number,
+                                                                                                    userMobile:
+                                                                                                    verifiedPostsComment[index].phone,
+                                                                                                    idUser: verifiedPostsComment[index].userid,
+                                                                                                    urlAvatar: verifiedPostsComment[index].picture,
+                                                                                                    name:verifiedPostsComment[index].name,
+                                                                                                  );
+                                                                                                  Navigator.push(context,
+                                                                                                      PageRouteBuilder(
+                                                                                                        pageBuilder: (context, animation, secondaryAnimation) {
+                                                                                                          return ChatPage(
+                                                                                                            user:   verifiedPostsComment[index],
+                                                                                                          );
+                                                                                                        },
+                                                                                                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                                                                                          return FadeTransition(
+                                                                                                            opacity: animation,
+                                                                                                            child: child,
+                                                                                                          );
+                                                                                                        },
+                                                                                                      ));
+                                                                                                },
+                                                                                                itemBuilder:
+                                                                                                    (BuildContext context) =>
+                                                                                                <PopupMenuEntry>[
+                                                                                                  const PopupMenuItem(
+                                                                                                    value: 'Message',
+                                                                                                    child: Text('Message'),
+                                                                                                  ),
+                                                                                                ],
+                                                                                              )
                                                                                             ],
                                                                                           ),
                                                                                           verifiedPostsComment[index]
@@ -1007,41 +1086,62 @@ scaffoldkey.currentState.openDrawer();
                                                                                                           children: [
 
                                                                                       //  FirebaseApi.thumbUp(number:int.parse(verifiedPostsComment[index].thumbup)+1,id: verifiedPostsComment[index].id);
-                                                                                                           InkWell(
-                                                                                                             onTap:(){
-                                                                                                               FirebaseApi.thumbUp(number:int.parse(verifiedPostsComment[index].thumbup)+1,id: verifiedPostsComment[index].id);
-                                                                                                             },
-                                                                                                             child: Row(
+                                                                                                           Row(
                                                                                                                children: [
-                                                                                                                 Icon(
-                                                                                                                   FeatherIcons.thumbsUp,
+
+                                                                                                                 IconButton(
+                                                                                                                 icon:Icon(  FeatherIcons.thumbsUp,
                                                                                                                    color: Colors.white,
                                                                                                                    size: 18,
-                                                                                                                 ),
+
+                                                                                                                 ) ,
+                                                                                                                 onPressed: (){
+                                                                                                                   FirebaseApi.thumbUp(number:int.parse(verifiedPostsComment[index].thumbup)+1,id: verifiedPostsComment[index].id);
+                                                                                                                 },),
                                                                                                                  Text(verifiedPostsComment[index].thumbup, style: TextStyle(color: Colors.white)),
                                                                                                                ],
                                                                                                              ),
-                                                                                                           ),
+
                                                                                                             SizedBox(
-                                                                                                              width: 20,
+                                                                                                              width: 40,
                                                                                                             ),
-                                                                                                           InkWell(
-                                                                                                             onTap:(){
-                                                                                                               FirebaseApi.thumbDown(number:int.parse(verifiedPostsComment[index].thumbdown)+1,id: verifiedPostsComment[index].id);
-                                                                                                             },
-                                                                                                             child: Row(
+                                                                                                           Row(
                                                                                                                children: [
-                                                                                                                 Icon(
-                                                                                                                   FeatherIcons.thumbsDown,
+                                                                                                                 IconButton(
+                                                                                                                 icon:Icon(  FeatherIcons.thumbsDown,
                                                                                                                    color: Colors.white,
                                                                                                                    size: 18,
                                                                                                                  ),
+                                                                                                                 onPressed: (){
+                                                                                                                   FirebaseApi.thumbDown(number:int.parse(verifiedPostsComment[index].thumbdown)+1,id: verifiedPostsComment[index].id);
+                                                                                                                 },),
                                                                                                                  Text(verifiedPostsComment[index].thumbdown, style: TextStyle(color: Colors.white)),
                                                                                                                ],
                                                                                                              ),
-                                                                                                           ),
+
                                                                                                             SizedBox(
-                                                                                                              width: 20,
+                                                                                                              width: 43,
+                                                                                                            ),
+
+
+
+                                                                                                              Row(
+                                                                                                                children: [
+                                                                                                                  IconButton(
+                                                                                                               icon:Icon( Icons
+                                                                                                                        .copy,
+                                                                                                                    color: Colors
+                                                                                                                        .white,
+                                                                                                                    size: 18,
+                                                                                                                  ),
+                                                                                                                  onPressed: (){
+                                                                                                                    FlutterClipboard.copy(verifiedPostsComment[index]
+                                                                                                                        .message.toString()).then(( value ) =>  scaffoldkey.currentState.showSnackBar(SnackBar(content:Text('copied'))));
+                                                                                                                  },),
+                                                                                                                ],
+                                                                                                            ),
+                                                                                                            SizedBox(
+                                                                                                              width: 43,
                                                                                                             ),
                                                                                                             Padding(
                                                                                                               padding:  EdgeInsets.only(bottom: verifiedPostsComment[index].status=='Bull' ||verifiedPostsComment[index].status=='Bear'? 8.0:0),
@@ -1056,32 +1156,10 @@ scaffoldkey.currentState.openDrawer();
                                                                                                                     .green
                                                                                                                     :Colors
                                                                                                                     .white,
-                                                                                                                size: 18,
+                                                                                                                size: 24,
                                                                                                               ),
-                                                                                                            ),
-                                                                                                            SizedBox(
-                                                                                                              width: 20,
                                                                                                             ),
 
-                                                                                                            InkWell(
-                                                                                                              onTap:
-                                                                                                                  () {
-                                                                                                                FlutterClipboard.copy(verifiedPostsComment[index]
-                                                                                                                    .message).then(( value ) =>  scaffoldkey.currentState.showSnackBar(SnackBar(content:Text('copied'))));
-                                                                                                              },
-                                                                                                              child:
-                                                                                                              Row(
-                                                                                                                children: [
-                                                                                                                  Icon(
-                                                                                                                    Icons
-                                                                                                                        .copy,
-                                                                                                                    color: Colors
-                                                                                                                        .white,
-                                                                                                                    size: 18,
-                                                                                                                  ),
-                                                                                                                ],
-                                                                                                              ),
-                                                                                                            ),
                                                                                                           ],
                                                                                                         ),
                                                                                                       )

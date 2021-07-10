@@ -1,114 +1,344 @@
+/// Package imports
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+/// Chart import
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
+
+/// Local imports
+// import '../../../../../model/sample_view.dart';
+
+
+class ChartSampleData {
+  final DateTime x;
+  final double close;
+  final double low;
+  final double open;
+  final double high;
+  final String volume;
+
+  ChartSampleData({this.x, this.close, this.high, this.open, this.low, this.volume});
+
+  static ChartSampleData fromJson(Map<String, dynamic> json) => ChartSampleData(
+    x: DateTime.parse(json['datetime']),
+    close: double.parse(json['close']),
+    open: double.parse(json['open']),
+    low: double.parse(json['low']),
+    high: double.parse(json['high']),
+    volume: json['volume'],
+
+  );
+
+  Map<String, dynamic> toJson() => {
+    'time': x,
+    'price':close,
+    'open': open,
+    'low': low,
+    'high': high
+  };
+}
 
 
 
-class ChartApp extends StatelessWidget {
+
+class CandleChart extends StatefulWidget {
+  // ///Creates default Candle series chart
+  // const CandleChart(Key key) : super(key: key);
+
+  @override
+  _CandleChartState createState() => _CandleChartState();
+}
+
+
+
+
+class _CandleChartState extends State<CandleChart> {
+   bool _enableSolidCandle;
+   bool _toggleVisibility;
+   TrackballBehavior _trackballBehavior;
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: _MyHomePage(),
+    return Scaffold(body: _buildCandle());
+  }
+
+  ///Get the cartesian chart with candle series
+  SfCartesianChart _buildCandle() {
+    return SfCartesianChart(
+      plotAreaBorderWidth: 0,
+      title: ChartTitle(text: 'AAPL - 2016'),
+      primaryXAxis: DateTimeAxis(
+          dateFormat: DateFormat.MMM(),
+          // interval: 3,
+          // intervalType: DateTimeIntervalType.months,
+          // minimum: DateTime(2016, 01, 01),
+          // maximum: DateTime(2016, 10, 01),
+          majorGridLines:  MajorGridLines(width: 0)),
+      primaryYAxis: NumericAxis(
+          // minimum: 140,
+          // maximum: 60,
+          // interval: 20,
+          labelFormat: r'${value}',
+          axisLine:  AxisLine(width: 0)),
+      series: _getCandleSeries(),
+      trackballBehavior: _trackballBehavior,
     );
   }
-}
 
-class _MyHomePage extends StatefulWidget {
-  // ignore: prefer_const_constructors_in_immutables
-  // _MyHomePage({Key? key}) : super(key: key);
+  /// It returns the candle series to the chart.
+  List<CandleSeries<ChartSampleData, DateTime>> _getCandleSeries() {
+    final List<ChartSampleData> chartData = <ChartSampleData>[
+      ChartSampleData(
+          x: DateTime(2016, 01, 11),
+          open: 98.97,
+          high: 101.19,
+          low: 95.36,
+          close: 97.13),
+      ChartSampleData(
+          x: DateTime(2016, 01, 18),
+          open: 98.41,
+          high: 101.46,
+          low: 93.42,
+          close: 101.42),
+      ChartSampleData(
+          x: DateTime(2016, 01, 25),
+          open: 101.52,
+          high: 101.53,
+          low: 92.39,
+          close: 97.34),
+      ChartSampleData(
+          x: DateTime(2016, 02, 01),
+          open: 96.47,
+          high: 97.33,
+          low: 93.69,
+          close: 94.02),
+      ChartSampleData(
+          x: DateTime(2016, 02, 08),
+          open: 93.13,
+          high: 96.35,
+          low: 92.59,
+          close: 93.99),
+      ChartSampleData(
+          x: DateTime(2016, 02, 15),
+          open: 95.02,
+          high: 98.89,
+          low: 94.61,
+          close: 96.04),
+      ChartSampleData(
+          x: DateTime(2016, 02, 22),
+          open: 96.31,
+          high: 98.0237,
+          low: 93.32,
+          close: 96.91),
+      ChartSampleData(
+          x: DateTime(2016, 02, 29),
+          open: 96.86,
+          high: 103.75,
+          low: 96.65,
+          close: 103.01),
+      ChartSampleData(
+          x: DateTime(2016, 03, 07),
+          open: 102.39,
+          high: 102.83,
+          low: 100.15,
+          close: 102.26),
+      ChartSampleData(
+          x: DateTime(2016, 03, 14),
+          open: 106.5,
+          high: 106.5,
+          low: 106.5,
+          close: 106.5),
+      ChartSampleData(
+          x: DateTime(2016, 03, 21),
+          open: 105.93,
+          high: 107.65,
+          low: 104.89,
+          close: 105.67),
+      ChartSampleData(
+          x: DateTime(2016, 03, 28),
+          open: 106,
+          high: 110.42,
+          low: 104.88,
+          close: 109.99),
+      ChartSampleData(
+          x: DateTime(2016, 04, 04),
+          open: 110.42,
+          high: 112.19,
+          low: 108.121,
+          close: 108.66),
+      ChartSampleData(
+          x: DateTime(2016, 04, 11),
+          open: 108.97,
+          high: 112.39,
+          low: 108.66,
+          close: 109.85),
+      ChartSampleData(
+          x: DateTime(2016, 04, 18),
+          open: 108.89,
+          high: 108.95,
+          low: 104.62,
+          close: 105.68),
+      ChartSampleData(
+          x: DateTime(2016, 04, 25),
+          open: 105,
+          high: 105.65,
+          low: 92.51,
+          close: 93.74),
+      ChartSampleData(
+          x: DateTime(2016, 05, 02),
+          open: 93.965,
+          high: 95.9,
+          low: 91.85,
+          close: 92.72),
+      ChartSampleData(
+          x: DateTime(2016, 05, 09),
+          open: 93,
+          high: 93.77,
+          low: 89.47,
+          close: 90.52),
+      ChartSampleData(
+          x: DateTime(2016, 05, 16),
+          open: 92.39,
+          high: 95.43,
+          low: 91.65,
+          close: 95.22),
+      ChartSampleData(
+          x: DateTime(2016, 05, 23),
+          open: 95.87,
+          high: 100.73,
+          low: 95.67,
+          close: 100.35),
+      ChartSampleData(
+          x: DateTime(2016, 05, 30),
+          open: 99.6,
+          high: 100.4,
+          low: 96.63,
+          close: 97.92),
+      ChartSampleData(
+          x: DateTime(2016, 06, 06),
+          open: 97.99,
+          high: 101.89,
+          low: 97.55,
+          close: 98.83),
+      ChartSampleData(
+          x: DateTime(2016, 06, 13),
+          open: 98.69,
+          high: 99.12,
+          low: 95.3,
+          close: 95.33),
+      ChartSampleData(
+          x: DateTime(2016, 06, 20),
+          open: 96,
+          high: 96.89,
+          low: 92.65,
+          close: 93.4),
+      ChartSampleData(
+          x: DateTime(2016, 06, 27),
+          open: 93,
+          high: 96.465,
+          low: 91.5,
+          close: 95.89),
+      ChartSampleData(
+          x: DateTime(2016, 07, 04),
+          open: 95.39,
+          high: 96.89,
+          low: 94.37,
+          close: 96.68),
+      ChartSampleData(
+          x: DateTime(2016, 07, 11),
+          open: 96.75,
+          high: 99.3,
+          low: 96.73,
+          close: 98.78),
+      ChartSampleData(
+          x: DateTime(2016, 07, 18),
+          open: 98.7,
+          high: 101,
+          low: 98.31,
+          close: 98.66),
+      ChartSampleData(
+          x: DateTime(2016, 07, 25),
+          open: 98.25,
+          high: 104.55,
+          low: 96.42,
+          close: 104.21),
+      ChartSampleData(
+          x: DateTime(2016, 08, 01),
+          open: 104.41,
+          high: 107.65,
+          low: 104,
+          close: 107.48),
+      ChartSampleData(
+          x: DateTime(2016, 08, 08),
+          open: 107.52,
+          high: 108.94,
+          low: 107.16,
+          close: 108.18),
+      ChartSampleData(
+          x: DateTime(2016, 08, 15),
+          open: 108.14,
+          high: 110.23,
+          low: 108.08,
+          close: 109.36),
+      ChartSampleData(
+          x: DateTime(2016, 08, 22),
+          open: 108.86,
+          high: 109.32,
+          low: 106.31,
+          close: 106.94),
+      ChartSampleData(
+          x: DateTime(2016, 08, 29),
+          open: 109.74,
+          high: 109.74,
+          low: 109.74,
+          close: 109.74),
+      ChartSampleData(
+          x: DateTime(2016, 09, 05),
+          open: 107.9,
+          high: 108.76,
+          low: 103.13,
+          close: 103.13),
+      ChartSampleData(
+          x: DateTime(2016, 09, 12),
+          open: 102.65,
+          high: 116.13,
+          low: 102.53,
+          close: 114.92),
+      ChartSampleData(
+          x: DateTime(2016, 09, 19),
+          open: 115.19,
+          high: 116.18,
+          low: 111.55,
+          close: 112.71),
+      ChartSampleData(
+          x: DateTime(2016, 09, 26),
+          open: 111.64,
+          high: 114.64,
+          low: 111.55,
+          close: 113.05),
+    ];
+    return <CandleSeries<ChartSampleData, DateTime>>[
+      CandleSeries<ChartSampleData, DateTime>(
+          enableSolidCandles: _enableSolidCandle,
+          dataSource: chartData,
+          name: 'AAPL',
+          showIndicationForSameValues:true,
+          xValueMapper: (ChartSampleData sales, _) => sales.x as DateTime,
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<_MyHomePage> {
-  List<_SalesData> data = [
-    _SalesData(DateTime(12,10,12), 5,33,22,22),
-    _SalesData(DateTime(11,11,12), 32,11,12,34),
-    _SalesData(DateTime(10,14,15), 35,5,56,76),
-    _SalesData(DateTime(21,1,12), 43,87,22,5),
-    _SalesData(DateTime(11,1,1), 87,33,43,34),
-  ];
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Syncfusion Flutter chart'),
-        ),
-        body: Column(children: [
-          //Initialize the chart widget
-          SfCartesianChart(
-              primaryXAxis: DateTimeAxis(),
-              primaryYAxis: NumericAxis(
-                // numberFormat: NumberFormat.currency(
-                //     locale: 'en_US',
-                //     symbol: '\$'
-                // ) ,
-                // minimum: 500,
-                // maximum: 1200,
-              ),
-              indicators: <TechnicalIndicators<_SalesData, dynamic>>[
-                BollingerBandIndicator<_SalesData, dynamic>(
-                  seriesName: 'App',
-                  period: 3,
-                )
-              ],
-              series: <ChartSeries>[
-                HiloOpenCloseSeries<_SalesData, dynamic>(
-                  name: 'App',
-                  dataSource: data,
-                  xValueMapper: (_SalesData sales, _) => sales.date,
-                  highValueMapper: (_SalesData sales, _) => sales.high,
-                  lowValueMapper: (_SalesData sales, _) => sales.low,
-                  openValueMapper: (_SalesData sales, _) => sales.open,
-                  closeValueMapper: (_SalesData sales, _) => sales.close,
-                )
-              ],
-              // Chart title
-              title: ChartTitle(text: 'Half yearly sales analysis'),
-              // Enable legend
-              // legend: Legend(isVisible: true),
-              // // Enable tooltip
-              // tooltipBehavior: TooltipBehavior(enable: true),
-              // series: <ChartSeries<_SalesData, String>>[
-              //   LineSeries<_SalesData, String>(
-              //       dataSource: data,
-              //       xValueMapper: (_SalesData sales, _) => sales.year,
-              //       yValueMapper: (_SalesData sales, _) => sales.sales,
-              //       name: 'Sales',
-              //       // Enable data label
-              //       dataLabelSettings: DataLabelSettings(isVisible: true))
-              ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              //Initialize the spark charts widget
-              child: SfSparkLineChart.custom(
-                //Enable the trackball
-                trackball: SparkChartTrackball(
-                    activationMode: SparkChartActivationMode.tap),
-                //Enable marker
-                marker: SparkChartMarker(
-                    displayMode: SparkChartMarkerDisplayMode.all),
-                //Enable data label
-                labelDisplayMode: SparkChartLabelDisplayMode.all,
-                xValueMapper: (int index) => data[index].date,
-                yValueMapper: (int index) => data[index].close,
-                dataCount: 5,
-              ),
-            ),
-          )
-        ]));
+          /// High, low, open and close values used to render the candle series.
+          lowValueMapper: (ChartSampleData sales, _) => sales.low,
+          highValueMapper: (ChartSampleData sales, _) => sales.high,
+          openValueMapper: (ChartSampleData sales, _) => sales.open,
+          closeValueMapper: (ChartSampleData sales, _) => sales.close)
+    ];
   }
-}
 
-class _SalesData {
-  _SalesData(this.date, this.high, this.open, this.close, this.low);
-
-  final DateTime date;
-  final int high;
-  final int open;
-  final int close;
-  final int low;
+  @override
+  void initState() {
+    _enableSolidCandle = true;
+    _toggleVisibility = true;
+    _trackballBehavior = TrackballBehavior(
+        enable: true, activationMode: ActivationMode.singleTap);
+    super.initState();
+  }
 }

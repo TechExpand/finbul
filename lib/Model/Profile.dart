@@ -7,6 +7,7 @@ class MessageField {
 class Profile {
   final String id;
   final userid;
+  final coverImage;
   final username;
   final String name;
   final picture;
@@ -19,6 +20,7 @@ class Profile {
     this.userid,
     this.name,
     this.picture,
+    this.coverImage,
     this.number,
     this.createdAt,
   });
@@ -28,6 +30,7 @@ class Profile {
         username = snapshot['username'] ?? '',
         number = snapshot['number']??'',
         name = snapshot['name'] ?? '',
+        coverImage = snapshot['coverImage']??'',
         picture = snapshot['picture'] ?? '',
         userid = snapshot['userid'] ?? '',
         createdAt = Utils.toDateTime(snapshot['createdAt']);
@@ -36,6 +39,7 @@ class Profile {
     'name': name,
     'username': username,
     'number': number,
+    'coverImage': coverImage,
     'picture': picture,
     'userid': userid,
     'createdAt': Utils.fromDateTimeToJson(createdAt),

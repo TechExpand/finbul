@@ -1,3 +1,4 @@
+import 'package:clipboard/clipboard.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fin_bul/Model/Profile.dart';
 import 'package:fin_bul/Model/WatchList.dart';
@@ -1138,81 +1139,84 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                                                           padding: const EdgeInsets.only(top: 8.0),
                                                                                           child: Row(
                                                                                             children: [
-                                                                                              InkWell(
-                                                                                                onTap: () {
-                                                                                                  Navigator.push(
-                                                                                                      context,
-                                                                                                      PageRouteBuilder(
-                                                                                                        pageBuilder: (context, animation, secondaryAnimation) {
-                                                                                                          return Comment(verifiedPosts[index1]);
-                                                                                                        },
-                                                                                                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                                                                                          return FadeTransition(
-                                                                                                            opacity: animation,
-                                                                                                            child: child,
-                                                                                                          );
-                                                                                                        },
-                                                                                                      ));
-                                                                                                  //  _Comment(verifiedPosts[index].id);
-                                                                                                },
-                                                                                                child: Row(
+                                                                                             Row(
                                                                                                   children: [
-                                                                                                    Icon(
-                                                                                                      Icons.mode_comment_outlined,
+                                                                                                    IconButton(
+                                                                                                  icon: Icon(  Icons.mode_comment_outlined,
                                                                                                       color: Colors.white,
                                                                                                       size: 18,
-                                                                                                    ),
+                                                                                                    ), onPressed: (){
+                                                                                                      Navigator.push(
+                                                                                                          context,
+                                                                                                          PageRouteBuilder(
+                                                                                                            pageBuilder: (context, animation, secondaryAnimation) {
+                                                                                                              return Comment(verifiedPosts[index1]);
+                                                                                                            },
+                                                                                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                                                                                              return FadeTransition(
+                                                                                                                opacity: animation,
+                                                                                                                child: child,
+                                                                                                              );
+                                                                                                            },
+                                                                                                          ));
+                                                                                                    },),
                                                                                                     Text(verifiedPosts[index1].comment, style: TextStyle(color: Colors.white)),
                                                                                                   ],
                                                                                                 ),
-                                                                                              ),
+
                                                                                               SizedBox(
                                                                                                 width: 20,
                                                                                               ),
-                                                                                              Icon(
-                                                                                                FeatherIcons.repeat,
-                                                                                                color: Colors.white,
-                                                                                                size: 18,
-                                                                                              ),
-                                                                                              Text('12', style: TextStyle(color: Colors.white)),
-                                                                                              SizedBox(
-                                                                                                width: 20,
-                                                                                              ),
-                                                                                              InkWell(
-                                                                                                onTap: () {
-                                                                                                  FirebaseApi.thumbUpPost(number: int.parse(verifiedPosts[index1].thumbup) + 1, id: verifiedPosts[index1].id);
-                                                                                                },
-                                                                                                child: Row(
+                                                                                               Row(
                                                                                                   children: [
-                                                                                                    Icon(
-                                                                                                      FeatherIcons.thumbsUp,
+                                                                                                    IconButton(
+                                                                                                    icon:Icon( FeatherIcons.thumbsUp,
                                                                                                       color: Colors.white,
                                                                                                       size: 18,
-                                                                                                    ),
+                                                                                                    ), onPressed: (){
+                                                                                                      FirebaseApi.thumbUpPost(number: int.parse(verifiedPosts[index1].thumbup) + 1, id: verifiedPosts[index1].id);
+                                                                                                    },),
                                                                                                     Text(verifiedPosts[index1].thumbup, style: TextStyle(color: Colors.white)),
                                                                                                   ],
                                                                                                 ),
-                                                                                              ),
+
                                                                                               SizedBox(
                                                                                                 width: 20,
                                                                                               ),
-                                                                                              InkWell(
-                                                                                                onTap: () {
-                                                                                                  FirebaseApi.thumbDownPost(number: int.parse(verifiedPosts[index1].thumbdown) + 1, id: verifiedPosts[index1].id);
-                                                                                                },
-                                                                                                child: Row(
+                                                                                              Row(
                                                                                                   children: [
-                                                                                                    Icon(
-                                                                                                      FeatherIcons.thumbsDown,
+                                                                                                    IconButton(
+                                                                                                    icon:Icon(  FeatherIcons.thumbsDown,
                                                                                                       color: Colors.white,
                                                                                                       size: 18,
-                                                                                                    ),
+                                                                                                    ),onPressed: (){
+                                                                                                      FirebaseApi.thumbDownPost(number: int.parse(verifiedPosts[index1].thumbdown) + 1, id: verifiedPosts[index1].id);
+                                                                                                    },),
                                                                                                     Text(verifiedPosts[index1].thumbdown, style: TextStyle(color: Colors.white)),
                                                                                                   ],
                                                                                                 ),
-                                                                                              ),
                                                                                               SizedBox(
                                                                                                 width: 20,
+                                                                                              ),
+                                                                                              Row(
+                                                                                                children: [
+                                                                                                  IconButton(
+                                                                                                    icon:Icon( Icons
+                                                                                                        .copy,
+                                                                                                      color: Colors
+                                                                                                          .white,
+                                                                                                      size: 18,
+                                                                                                    ),
+                                                                                                    onPressed: (){
+                                                                                                      FlutterClipboard.copy(verifiedPosts[index1].message.toString()).then(( value ) =>  scafoldKey.currentState.showSnackBar(SnackBar(content:Text('copied'))));
+                                                                                                    },
+                                                                                                  ),
+                                                                                                ],
+                                                                                              ),
+
+
+                                                                                              SizedBox(
+                                                                                                width: 5,
                                                                                               ),
                                                                                               Padding(
                                                                                                 padding: EdgeInsets.only(bottom: verifiedPosts[index1].status == 'Bull' || verifiedPosts[index1].status == 'Bear' ? 8.0 : 0),
@@ -1227,7 +1231,7 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                                                                       : verifiedPosts[index1].status == 'Bull'
                                                                                                           ? Colors.green
                                                                                                           : Colors.white,
-                                                                                                  size: 18,
+                                                                                                  size: 24,
                                                                                                 ),
                                                                                               ),
                                                                                             ],

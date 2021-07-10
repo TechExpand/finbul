@@ -33,18 +33,19 @@ dependencies:
   charts_flutter: ^0.10.0
   provider: ^4.3.2+2
   syncfusion_flutter_charts: any
-  get: ^4.1.4
-  shared_preferences: ^0.5.12+4
+#  grouped_list: ^4.0.0
+#  shared_preferences: ^0.5.12+4
   intl: any
   url_launcher:
   cloud_firestore: any
-  toggle_switch: ^1.1.0
+  google_sign_in: ^4.5.9
+  intro_slider:
   firebase_storage: any
   date_format:
   flutter_feather_icons: ^1.0.3
   flutter_ringtone_player: ^2.0.0
   audioplayer:
-  gx_file_picker: any
+#  gx_file_picker: any
   image_picker: ^0.6.7+21
   font_awesome_flutter:
   firebase_auth: 0.18.4+1

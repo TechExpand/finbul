@@ -17,10 +17,9 @@ import 'package:fin_bul/Model/post.dart';
 import 'package:fin_bul/Model/Profile.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:toggle_switch/toggle_switch.dart';
+
 
 class Feed extends StatefulWidget {
   const Feed({Key key}) : super(key: key);
@@ -764,9 +763,31 @@ class FeedState extends State<Feed> {
                                                                                       style: TextStyle(color: Colors.white)),
                                                                                 ],
                                                                               ),
-                                                                            
                                                                             SizedBox(
                                                                               width: 20,
+                                                                            ),
+
+
+                                                                            Row(
+                                                                              children: [
+                                                                                IconButton(
+                                                                                    onPressed:
+                                                                                        () {
+                                                                                      FlutterClipboard.copy(verifiedPosts[index1]
+                                                                                          .message).then(( value ) =>  scaffoldkey.currentState.showSnackBar(SnackBar(content:Text('copied'))));
+                                                                                    },
+                                                                                    icon:Icon(
+                                                                                      Icons
+                                                                                          .copy,
+                                                                                      color: Colors
+                                                                                          .white,
+                                                                                      size: 18,
+                                                                                    ))
+                                                                                ,
+                                                                              ],
+                                                                            ),
+                                                                            SizedBox(
+                                                                              width: 10,
                                                                             ),
                                                                             Padding(
                                                                               padding:  EdgeInsets.only(bottom: verifiedPosts[index1].status=='Bull' ||verifiedPosts[index1].status=='Bear'? 8.0:0),
@@ -784,32 +805,10 @@ class FeedState extends State<Feed> {
                                                                                     .green
                                                                                     :Colors
                                                                                     .white,
-                                                                                size: 18,
+                                                                                size: 24,
                                                                               ),
-                                                                            ),
-                                                                            SizedBox(
-                                                                              width: 20,
                                                                             ),
 
-                                                                           
-                                                                              Row(
-                                                                                children: [
-                                                                                  IconButton(
-                                                                                    onPressed:
-                                                                                  () {
-                                                                                FlutterClipboard.copy(verifiedPosts[index1]
-                                                                                    .message).then(( value ) =>  scaffoldkey.currentState.showSnackBar(SnackBar(content:Text('copied'))));
-                                                                              },
-                                                                                    icon:Icon(
-                                                                                    Icons
-                                                                                        .copy,
-                                                                                    color: Colors
-                                                                                        .white,
-                                                                                    size: 18,
-                                                                                  ))
-                                                                                  ,
-                                                                                ],
-                                                                              ),
                                                                             
                                                                           ],
                                                                         ),

@@ -31,7 +31,7 @@ class MessageWidget extends StatelessWidget {
             children: <Widget>[
             if (!isMe)
         Padding(
-        padding: const EdgeInsets.all(8.0), child:Text(message.username)
+        padding: const EdgeInsets.all(8.0), child:Text(message.username, style: TextStyle(color:Color( 0xFFFEB904)),)
     ),
     !isMe
     ?
@@ -42,7 +42,7 @@ class MessageWidget extends StatelessWidget {
     Padding(
     padding: const
     EdgeInsets.all(8.0),
-    child: Text(message.username)
+    child: Text(message.username, style: TextStyle(color:Color( 0xFFFEB904)))
     ,
     )
     ,
@@ -97,6 +97,7 @@ class MessageWidget extends StatelessWidget {
                 height: 170,
                 width: 170,
                 child: Card(
+                  color:Color( 0xFFFEB904),
                   child: Padding(
                     padding: const EdgeInsets.all(3.0),
                     child: Image.network(
@@ -135,19 +136,19 @@ class MessageWidget extends StatelessWidget {
                   child: Icon(Icons.play_circle_filled, size: 35,)),
               SliderTheme(
                 data: SliderTheme.of(context).copyWith(
-                  activeTrackColor: Color(0xFF372C6A),
-                  inactiveTrackColor: Color(0xFF372C6A),
+                  activeTrackColor: Color( 0xFFFEB904),
+                  inactiveTrackColor:Color( 0xFFFEB904),
                   trackShape: RoundedRectSliderTrackShape(),
                   trackHeight: 5.0,
                   thumbShape:
                   RoundSliderThumbShape(enabledThumbRadius: 12.0),
                   thumbColor: Color(0xFF5e5780),
-                  overlayColor: Color(0xFF372C6A),
+                  overlayColor:Color( 0xFFFEB904),
                   overlayShape:
                   RoundSliderOverlayShape(overlayRadius: 15.0),
                   tickMarkShape: RoundSliderTickMarkShape(),
-                  activeTickMarkColor: Color(0xFF372C6A),
-                  inactiveTickMarkColor:Color(0xFF372C6A),
+                  activeTickMarkColor: Color( 0xFFFEB904),
+                  inactiveTickMarkColor:Color( 0xFFFEB904),
                   valueIndicatorShape: PaddleSliderValueIndicatorShape(),
                   valueIndicatorColor: Color(0xFF5e5780),
                   valueIndicatorTextStyle: TextStyle(
@@ -192,7 +193,9 @@ class MessageWidget extends StatelessWidget {
             ),
           ),
         ) :Container(): Card(
+          color: Color(0xFF403477),
           child: Container(
+            color: Color(0xFF403477),
             width: MediaQuery
                 .of(context)
                 .size
@@ -201,7 +204,7 @@ class MessageWidget extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 message.message,
-                style: TextStyle(color: isMe ? Colors.black : Colors.black),
+                style: TextStyle(color: isMe ? Colors.white : Colors.white),
                 textAlign: isMe ? TextAlign.start : TextAlign.end,
               ),
             ),
@@ -215,12 +218,12 @@ class MessageWidget extends StatelessWidget {
               height: 3,
               width: 3,
               decoration: BoxDecoration(
-                  color: Colors.black38,
+                  color:Color( 0xFFFEB904),
                   shape: BoxShape.circle
               ),
             ),
             // Text(message.username),
-            Text(date),
+            Text(date, style:TextStyle(color:Color( 0xFFFEB904))),
           ],
         ),
       ],
@@ -271,6 +274,7 @@ class MessageWidget extends StatelessWidget {
                 height: 170,
                 width: 170,
                 child: Card(
+                color:Color( 0xFFFEB904),
                   child: Padding(
                     padding: const EdgeInsets.all(3.0),
                     child: Image.network(
@@ -309,19 +313,19 @@ class MessageWidget extends StatelessWidget {
                   child: Icon(Icons.play_circle_filled, size: 35,)),
               SliderTheme(
                 data: SliderTheme.of(context).copyWith(
-                  activeTrackColor: Color(0xFF372C6A),
-                  inactiveTrackColor: Color(0xFF372C6A),
+                  activeTrackColor: Color( 0xFFFEB904),
+                  inactiveTrackColor:Color( 0xFFFEB904),
                   trackShape: RoundedRectSliderTrackShape(),
                   trackHeight: 5.0,
                   thumbShape:
                   RoundSliderThumbShape(enabledThumbRadius: 12.0),
                   thumbColor: Color(0xFF5e5780),
-                  overlayColor: Color(0xFF372C6A),
+                  overlayColor:Color( 0xFFFEB904),
                   overlayShape:
                   RoundSliderOverlayShape(overlayRadius: 15.0),
                   tickMarkShape: RoundSliderTickMarkShape(),
-                  activeTickMarkColor: Color(0xFF372C6A),
-                  inactiveTickMarkColor:Color(0xFF372C6A),
+                  activeTickMarkColor: Color( 0xFFFEB904),
+                  inactiveTickMarkColor:Color( 0xFFFEB904),
                   valueIndicatorShape: PaddleSliderValueIndicatorShape(),
                   valueIndicatorColor: Color(0xFF5e5780),
                   valueIndicatorTextStyle: TextStyle(
@@ -365,7 +369,9 @@ class MessageWidget extends StatelessWidget {
             ),
           ),
         ) :Container(): Card(
+          color: Color(0xFF403477),
           child: Container(
+            color: Color(0xFF403477),
             width: MediaQuery
                 .of(context)
                 .size
@@ -374,7 +380,7 @@ class MessageWidget extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 message.message,
-                style: TextStyle(color: isMe ? Colors.black : Colors.black),
+                style: TextStyle(color: isMe ? Colors.white : Colors.white),
                 textAlign: isMe ? TextAlign.start : TextAlign.end,
               ),
             ),
@@ -388,12 +394,12 @@ class MessageWidget extends StatelessWidget {
               height: 3,
               width: 3,
               decoration: BoxDecoration(
-                  color: Colors.black38,
+                  color: Color( 0xFFFEB904),
                   shape: BoxShape.circle
               ),
             ),
             // Text(message.username),
-            Text(date),
+            Text(date, style: TextStyle(color:Color( 0xFFFEB904)))
           ],
         ),
       ],

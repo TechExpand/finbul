@@ -112,7 +112,7 @@ class FirebaseApi {
 
 
 
-  static Future uploadComment2({String id, String message,postid, name,username , picture, status, image, context}) async {
+  static Future uploadComment2(phone,{String id, String message,postid, name,username , picture, status, image, context}) async {
     var network = Provider.of<DataProvider>(context, listen: false);
     final refPost =
     FirebaseFirestore.instance.collection('PostComment');
@@ -131,6 +131,7 @@ class FirebaseApi {
           'message': message,
           'status':status,
           'username': username,
+          'phone': phone,
           'picture': picture,
           'name': name,
           'createdAt': DateTime.now(),
@@ -535,8 +536,8 @@ class FirebaseApi {
   }
 
 
-  static Future uploadpostComment({
-    String id, String message, name, context, postid, username,phone,status, picture,scaffoldkey}) async {
+  static Future uploadpostComment(phone, {
+    String id, String message, name, context, postid, username,status, picture,scaffoldkey}) async {
     final refMessages = FirebaseFirestore.instance.collection('PostComment');
 
     await refMessages.doc().set({
@@ -580,6 +581,13 @@ class FirebaseApi {
     final refMessages = FirebaseFirestore.instance.collection('WatchList');
     await refMessages.doc(id).delete();
   }
+
+
+  static Future deletePost(String id) async {
+    final refMessages = FirebaseFirestore.instance.collection('Post');
+    await refMessages.doc(id).delete();
+  }
+
 
   static Future updatePost(String id, message) async {
     final refMessages = FirebaseFirestore.instance.collection('Post');
@@ -666,7 +674,6 @@ class FirebaseApi {
 
     await refMessages.doc(id).update({
       'name': name,
-      'createdAt': DateTime.now(),
     });
   }
 
@@ -686,7 +693,6 @@ class FirebaseApi {
       storageReferenceImage.getDownloadURL().then((imageurl) async {
         refMessages.doc(id).update({
           'picture': imageurl,
-          'createdAt': DateTime.now(),
         });
       });
     });
@@ -702,6 +708,32 @@ class FirebaseApi {
 
 
 
+  static Future updateCoverImage(id, paths, context) async {
+    final refMessages = FirebaseFirestore.instance.collection('Profile');
+
+    Reference storageReferenceImage = FirebaseStorage.instance
+        .ref()
+        .child('image/${Path.basename(paths.path)}');
+
+    UploadTask uploadTask = storageReferenceImage.putFile(File(paths.path));
+    uploadTask.then((res) {
+      storageReferenceImage.getDownloadURL().then((imageurl) async {
+        refMessages.doc(id).update({
+          'coverImage': imageurl,
+        });
+      });
+    });
+    // _scaffoldKey.currentState.showSnackBar(
+    //   SnackBar(
+    //     content: Text('Profile picture updated'),
+    //     backgroundColor: Theme.of(context).errorColor,
+    //   ),
+    // );
+  }
+
+
+
+
 
   static Future createProfile(String id, username, name, number) async {
     final refMessages = FirebaseFirestore.instance.collection('Profile');
@@ -710,6 +742,7 @@ class FirebaseApi {
       'userid': id,
       'name': name,
       'number': number,
+      'coverImage': '',
       'picture': 'https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg',
       'username': username,
       'createdAt': DateTime.now(),

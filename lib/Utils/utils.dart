@@ -5,7 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -82,6 +82,13 @@ class Utils with ChangeNotifier {
   }
 
 
+  formatDateprofile(DateTime now) {
+    final DateFormat formatter = DateFormat('dd MMMM yyyy');
+    final String formatted = formatter.format(now);
+    notifyListeners();
+    return formatted;
+  }
+
 
   static formatTime(DateTime now) {
     final DateFormat formatter = DateFormat().add_jm();
@@ -148,16 +155,16 @@ class Utils with ChangeNotifier {
     print(val);
   }
 
-  Future storeData(String name, String data) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(name, data);
-  }
-
-  Future getData(String name) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String data = prefs.getString(name);
-    return data;
-  }
+  // Future storeData(String name, String data) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setString(name, data);
+  // }
+  //
+  // Future getData(String name) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   String data = prefs.getString(name);
+  //   return data;
+  // }
 }
 
 extension CapExtension on String {

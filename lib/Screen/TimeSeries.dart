@@ -56,13 +56,19 @@ class ItemDetailsPage extends StatefulWidget {
 
 class _ItemDetailsPageState extends State<ItemDetailsPage> {
 
+  bool _enableSolidCandle;
+  bool _toggleVisibility;
+  TrackballBehavior _trackballBehavior;
   // List dataJSON;
 
-  // @override
-  // void initState() {
-  //   getCoinsTimeSeries();
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    _enableSolidCandle = true;
+    _toggleVisibility = true;
+    _trackballBehavior = TrackballBehavior(
+        enable: true, activationMode: ActivationMode.singleTap);
+    super.initState();
+  }
 
   List<TimeSeriesPrice> testdata = [
     TimeSeriesPrice(time: DateTime(12,10,12),open: 5.0, price:33.0, high:22.0, low:22.0),
@@ -107,46 +113,84 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                 child: Container(
                   height: 200,
                   child: SfCartesianChart(
-                    primaryXAxis: DateTimeAxis(),
+                    indicators: <TechnicalIndicators<TimeSeriesPrice, dynamic>>[
+                        BollingerBandIndicator<TimeSeriesPrice, dynamic>(
+                          seriesName: 'App',
+                          period: 3,
+                        )
+                      ],
+                    plotAreaBorderWidth: 0,
+                    primaryXAxis: DateTimeAxis(
+                        dateFormat: DateFormat.MMM(),
+                        // interval: 3,
+                        // intervalType: DateTimeIntervalType.months,
+                        // minimum: DateTime(2016, 01, 01),
+                        // maximum: DateTime(2016, 10, 01),
+                        majorGridLines:  MajorGridLines(width: 0)),
                     primaryYAxis: NumericAxis(
-                      numberFormat: NumberFormat.currency(
-                          locale: 'en_US',
-                          symbol: '\$'
-                      ) ,
-                      // minimum: 700,
-                      // maximum: 1300,
-                    ),
-                    // indicators: <TechnicalIndicators<TimeSeriesPrice, dynamic>>[
-                    //   BollingerBandIndicator<TimeSeriesPrice, dynamic>(
-                    //     seriesName: 'App',
-                    //     period: 3,
-                    //   )
-                    // ],
-                    series: <ChartSeries>[
-                      HiloOpenCloseSeries<TimeSeriesPrice, dynamic>(
+                      // minimum: 140,
+                      // maximum: 60,
+                      // interval: 20,
+                        labelFormat: r'${value}',
+                        axisLine:  AxisLine(width: 0)),
+                    series:  <CandleSeries<TimeSeriesPrice, DateTime>>[
+                    CandleSeries<TimeSeriesPrice, DateTime>(
+                        enableSolidCandles: _enableSolidCandle,
                         name: 'App',
-                        dataSource: snapshot.data ==null || snapshot.data.length==0?testdata:snapshot.data,
-                        xValueMapper: (TimeSeriesPrice sales, _) => sales.time,
-                        highValueMapper: (TimeSeriesPrice sales, _) => sales.high,
+                             dataSource: snapshot.data ==null || snapshot.data.length==0?testdata:snapshot.data,
+                        showIndicationForSameValues:true,
+                        xValueMapper: (TimeSeriesPrice sales, _) => sales.time as DateTime,
+
+                        /// High, low, open and close values used to render the candle series.
                         lowValueMapper: (TimeSeriesPrice sales, _) => sales.low,
+                        highValueMapper: (TimeSeriesPrice sales, _) => sales.high,
                         openValueMapper: (TimeSeriesPrice sales, _) => sales.open,
-                        closeValueMapper: (TimeSeriesPrice sales, _) => sales.price,
-                      )
-                    ],
-                    // Chart title
-                    // Enable legend
-                    // legend: Legend(isVisible: true),
-                    // // Enable tooltip
-                    // tooltipBehavior: TooltipBehavior(enable: true),
-                    // series: <ChartSeries<_SalesData, String>>[
-                    //   LineSeries<_SalesData, String>(
-                    //       dataSource: data,
-                    //       xValueMapper: (_SalesData sales, _) => sales.year,
-                    //       yValueMapper: (_SalesData sales, _) => sales.sales,
-                    //       name: 'Sales',
-                    //       // Enable data label
-                    //       dataLabelSettings: DataLabelSettings(isVisible: true))
+                        closeValueMapper: (TimeSeriesPrice sales, _) => sales.price)
+                  ],
+                    trackballBehavior: _trackballBehavior,
                   ),
+
+                  // SfCartesianChart(
+                  //   primaryXAxis: DateTimeAxis(),
+                  //   primaryYAxis: NumericAxis(
+                  //     numberFormat: NumberFormat.currency(
+                  //         locale: 'en_US',
+                  //         symbol: '\$'
+                  //     ) ,
+                  //     // minimum: 700,
+                  //     // maximum: 1300,
+                  //   ),
+                  //   // indicators: <TechnicalIndicators<TimeSeriesPrice, dynamic>>[
+                  //   //   BollingerBandIndicator<TimeSeriesPrice, dynamic>(
+                  //   //     seriesName: 'App',
+                  //   //     period: 3,
+                  //   //   )
+                  //   // ],
+                  //   series: <ChartSeries>[
+                  //     HiloOpenCloseSeries<TimeSeriesPrice, dynamic>(
+                  //       name: 'App',
+                  //       dataSource: snapshot.data ==null || snapshot.data.length==0?testdata:snapshot.data,
+                  //       xValueMapper: (TimeSeriesPrice sales, _) => sales.time,
+                  //       highValueMapper: (TimeSeriesPrice sales, _) => sales.high,
+                  //       lowValueMapper: (TimeSeriesPrice sales, _) => sales.low,
+                  //       openValueMapper: (TimeSeriesPrice sales, _) => sales.open,
+                  //       closeValueMapper: (TimeSeriesPrice sales, _) => sales.price,
+                  //     )
+                  //   ],
+                  //   // Chart title
+                  //   // Enable legend
+                  //   // legend: Legend(isVisible: true),
+                  //   // // Enable tooltip
+                  //   // tooltipBehavior: TooltipBehavior(enable: true),
+                  //   // series: <ChartSeries<_SalesData, String>>[
+                  //   //   LineSeries<_SalesData, String>(
+                  //   //       dataSource: data,
+                  //   //       xValueMapper: (_SalesData sales, _) => sales.year,
+                  //   //       yValueMapper: (_SalesData sales, _) => sales.sales,
+                  //   //       name: 'Sales',
+                  //   //       // Enable data label
+                  //   //       dataLabelSettings: DataLabelSettings(isVisible: true))
+                  // ),
                 ),
               ) : snapshot.data.isEmpty
                           ? Padding(

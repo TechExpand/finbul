@@ -1,5 +1,6 @@
 import 'package:fin_bul/Screen/HomePage.dart';
 import 'package:fin_bul/Screen/SignUp.dart';
+import 'package:fin_bul/Screen/intro.dart';
 import 'package:fin_bul/Utils/Provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +55,7 @@ class SplashScreenState extends State<SplashScreen> {
         context,
         PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
-            return SignUpScreen();
+            return IntroScreen();
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child){
             return FadeTransition(

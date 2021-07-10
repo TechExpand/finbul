@@ -3,6 +3,7 @@ import 'package:fin_bul/Service/firebase.dart';
 import 'package:fin_bul/Utils/Provider.dart';
 import 'package:fin_bul/Utils/utils.dart';
 import 'package:fin_bul/Widgets/photoView.dart';
+import 'package:fin_bul/Widgets/recordPlayer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -27,17 +28,20 @@ class _ChatFilesState extends State<ChatFiles> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        backgroundColor:  Color(0xFF372C6A),
         appBar: AppBar(
           title: Text(widget.user.name ?? ''),
           leading: InkWell(
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Icon(Icons.arrow_back)),
+              child: Icon(Icons.arrow_back, color:  Color( 0xFFFEB904),)),
           bottom: PreferredSize(
               child: TabBar(
+                unselectedLabelColor: Color(0xFF705FBB),
+                labelColor:  Color(0xFFFEB904),
+                indicatorColor: Color(0xFFFEB904),
                 indicatorWeight: 5,
-                indicatorColor: Colors.white,
                 tabs: [
                   Tab(
                     child: Text('MEDIA'),
@@ -121,12 +125,75 @@ class MediaWidget extends StatelessWidget {
                             ),
                           );
 
-                        },                     child: Container(
-                          height: 150,
-                          child: Image.network(
-                            message.message,
-                            fit: BoxFit.cover,
-                          )),
+                        },                     child: Padding(
+                          padding: const EdgeInsets.only(bottom:2),
+                          child: Container(
+                            height: 150,
+                            child: Image.network(
+                              message.message,
+                              fit: BoxFit.cover,
+                            )),
+                        ),
+                      ),
+                    ): data.categorizeUrl(message.message) == 'audio'?
+                    Padding(
+                      padding:  EdgeInsets.only(bottom:4, top: 4,left: MediaQuery.of(context).size.width/4),
+                      child: GestureDetector(
+                        onTap: () {
+                          return Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) {
+                                return AudioApp(kUrl: message.message, tag: message.message);
+                              },
+                              transitionsBuilder: (context, animation, secondaryAnimation,
+                                  child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: Row(
+                          children: [
+                            Hero(
+                                tag: message.message,
+                                child: Icon(Icons.play_circle_filled, size: 35,)),
+                            SliderTheme(
+                              data: SliderTheme.of(context).copyWith(
+                                activeTrackColor: Color( 0xFFFEB904),
+                                inactiveTrackColor:Color( 0xFFFEB904),
+                                trackShape: RoundedRectSliderTrackShape(),
+                                trackHeight: 5.0,
+                                thumbShape:
+                                RoundSliderThumbShape(enabledThumbRadius: 12.0),
+                                thumbColor: Color(0xFF5e5780),
+                                overlayColor:Color( 0xFFFEB904),
+                                overlayShape:
+                                RoundSliderOverlayShape(overlayRadius: 15.0),
+                                tickMarkShape: RoundSliderTickMarkShape(),
+                                activeTickMarkColor: Color( 0xFFFEB904),
+                                inactiveTickMarkColor:Color( 0xFFFEB904),
+                                valueIndicatorShape: PaddleSliderValueIndicatorShape(),
+                                valueIndicatorColor: Color(0xFF5e5780),
+                                valueIndicatorTextStyle: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              child: Slider(
+                                value: 0,
+                                onChanged: (double value) {
+
+                                },
+                                min: 0.0,
+                                max: 10.0,
+                              ),
+                            ),
+                          ],
+                        ),
+
                       ),
                     )
                         : Container()

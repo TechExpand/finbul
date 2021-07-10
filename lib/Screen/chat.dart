@@ -300,7 +300,7 @@ class _ChatPageState extends State<ChatPage> {
 
                   return new Container(
                     height: 100.0,
-                    color: Colors.transparent,
+                    color:  Color(0xFF372C6A),
                     //could change this to Color(0xFF737373),
                     //so you don't have to change MaterialApp canvasColor
                     child: Padding(
@@ -340,7 +340,7 @@ class _ChatPageState extends State<ChatPage> {
                                   }
                                 },
                                 child: _buildText(_currentStatus),
-                                color: Color(0xFF372C6A),
+                                color: Color( 0xFFFEB904),
                               ),
                             ),
                             new FlatButton(
@@ -349,7 +349,7 @@ class _ChatPageState extends State<ChatPage> {
                                   : null,
                               child: new Text("Stop",
                                   style: TextStyle(color: Colors.white)),
-                              color: Color(0xFF372C6A).withOpacity(.5),
+                              color: Color( 0xFFFEB904).withOpacity(0.5),
                             ),
                             _currentStatus == RecordingStatus.Stopped
                                 ? new InkWell(
@@ -361,9 +361,9 @@ class _ChatPageState extends State<ChatPage> {
                                 );
                               },
                               child: Icon(Icons.send,
-                                  size: 40, color: Colors.black),
+                                  size: 40, color: Colors.white),
                             )
-                                : Icon(Icons.send, size: 40, color: Colors.black54),
+                                : Icon(Icons.send, size: 40, color: Colors.white70),
                           ],
                         ),
                         /*  Padding(
@@ -371,7 +371,7 @@ class _ChatPageState extends State<ChatPage> {
                   child: new Text("Status : $_currentStatus"),
                 ),*/
                         Text(
-                            "Recording Duration : ${_current?.duration.toString()}"),
+                            "Recording Duration : ${_current?.duration.toString()}", style: TextStyle(color: Colors.white),),
                       ]),
                     ),
                   );
@@ -406,9 +406,9 @@ class _ChatPageState extends State<ChatPage> {
                                 width: 40,
                                 height: 40,
                                 decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color:  Color( 0xFFFEB904),
                                     shape: BoxShape.circle),
-                                child: Icon(Icons.clear)),
+                                child: Icon(Icons.clear,color: Colors.white)),
                           ),
                           SizedBox(
                             width: 14,
@@ -463,7 +463,7 @@ class _ChatPageState extends State<ChatPage> {
                                 Navigator.pop(context);
                               });
                             },
-                            icon: Icon(Icons.send, color: Colors.white),
+                            icon: Icon(Icons.send, color:  Color( 0xFFFEB904),),
                           )
                               : IconButton(
                             onPressed: () {
@@ -471,7 +471,7 @@ class _ChatPageState extends State<ChatPage> {
                             },
                             icon: Icon(
                               Icons.mic,
-                              color: Colors.white,
+                              color:  Color( 0xFFFEB904),
                               size: 30,
                             ),
                           )
@@ -482,62 +482,11 @@ class _ChatPageState extends State<ChatPage> {
                       ),
                     ),
                     Container(
-                      color: Colors.white,
+                      color: Color(0xFF372C6A),
                       padding: EdgeInsets.all(8),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          InkWell(
-                            onTap: () {
-                              pickDoc();
-                            },
-                            child: Tab(
-                                icon: Container(
-                                    width: 40,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFF372C6A),
-                                        shape: BoxShape.circle),
-                                    child: Icon(
-                                      Icons.attachment,
-                                      color: Colors.white,
-                                    )),
-                                text: 'Attachment'),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              pickImage(
-                                  source: ImageSource.camera, context: context);
-                            },
-                            child: Tab(
-                                icon: Container(
-                                    width: 40,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFF372C6A),
-                                        shape: BoxShape.circle),
-                                    child: Icon(Icons.camera_alt,
-                                        color: Colors.white)),
-                                text: 'Camera'),
-                          ),
-                          InkWell(
-                            child: Tab(
-                                icon: Container(
-                                    width: 40,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFF372C6A),
-                                        shape: BoxShape.circle),
-                                    child: Center(
-                                      child: Text(
-                                        '@',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 20),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    )),
-                                text: 'Mention'),
-                          ),
                           InkWell(
                             onTap: () {
                               pickImage(
@@ -549,20 +498,32 @@ class _ChatPageState extends State<ChatPage> {
                                     width: 40,
                                     height: 40,
                                     decoration: BoxDecoration(
-                                        color: Color(0xFF372C6A),
+                                        color: Color( 0xFFFEB904),
                                         shape: BoxShape.circle),
-                                    child: Center(
-                                      child: Text(
-                                        'GIF',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold),
-                                        textAlign: TextAlign.center,
-                                      ),
+                                    child: Icon(
+                                      Icons.attachment,
+                                      color: Colors.white,
                                     )),
-                                text: 'GIF'),
+                                child: Text('Attachment', style:TextStyle(color:Colors.white))),
                           ),
+                          InkWell(
+                            onTap: () {
+                              pickImage(
+                                  source: ImageSource.camera, context: context);
+                            },
+                            child: Tab(
+                                icon: Container(
+                                    width: 40,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                        color:Color( 0xFFFEB904),
+                                        shape: BoxShape.circle),
+                                    child: Icon(Icons.camera_alt,
+                                        color: Colors.white)),
+                                child: Text('Camera', style:TextStyle(color:Colors.white))),
+                          ),
+
+
                         ],
                       ),
                     ),
@@ -576,6 +537,7 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       key: scaffoldkey,
       appBar: AppBar(
+        elevation: 0.0,
         backgroundColor:Color(0xFF372C6A),
         leading: IconButton(
           onPressed: () {
@@ -583,6 +545,7 @@ class _ChatPageState extends State<ChatPage> {
           },
           icon: Icon(
             Icons.arrow_back,
+            color:  Color( 0xFFFEB904),
           ),
         ),
         centerTitle: false,
@@ -594,6 +557,7 @@ class _ChatPageState extends State<ChatPage> {
             icon: Icon(
               Icons.phone,
               size: 25,
+              color:  Color( 0xFFFEB904),
             ),
             onPressed: () {
               data.makePhoneCall(widget.user.userMobile);
@@ -610,14 +574,14 @@ class _ChatPageState extends State<ChatPage> {
         ],
       ),
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.white,
+      backgroundColor:Color(0xFF372C6A),
       body: Column(
         children: [
           Expanded(
             child: Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color:Color(0xFF372C6A),
               ),
               child: MessagesWidget(
                   idUser:widget.user.userid.toString(),
@@ -640,9 +604,10 @@ class _ChatPageState extends State<ChatPage> {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                                color: Colors.white, shape: BoxShape.circle),
+                                color: Color( 0xFFFEB904), shape: BoxShape.circle),
                             child: Icon(
                               Icons.add,
+                              color: Colors.white,
                               size: 35,
                             )),
                       ),
@@ -697,7 +662,7 @@ class _ChatPageState extends State<ChatPage> {
                       datass.isWriting
                           ? IconButton(
                         onPressed: sendMessage,
-                        icon: Icon(Icons.send, color: Colors.white),
+                        icon: Icon(Icons.send, color:  Color( 0xFFFEB904),),
                       )
                           : IconButton(
                         onPressed: () {
@@ -705,7 +670,7 @@ class _ChatPageState extends State<ChatPage> {
                         },
                         icon: Icon(
                           Icons.mic,
-                          color: Colors.white,
+                          color:  Color( 0xFFFEB904),
                           size: 30,
                         ),
                       )

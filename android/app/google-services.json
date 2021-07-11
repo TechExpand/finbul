@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:488573948959:android:31517ad023dbf3759ff12a",
+        "mobilesdk_app_id": "1:488573948959:android:06ff2781c49119a99ff12a",
         "android_client_info": {
-          "package_name": "com.finbul.fin_bul"
+          "package_name": "com.finbul"
         }
       },
       "oauth_client": [
         {
-          "client_id": "488573948959-25ucpbg5s4t52ctge18v966tmve4i7u3.apps.googleusercontent.com",
+          "client_id": "488573948959-s7c80vl62b39pb9rsccj0iackdo37kbi.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.finbul.fin_bul",
+            "package_name": "com.finbul",
             "certificate_hash": "dfa5db75021dc125efbcad79eb939cdb0a7233c6"
           }
         },
@@ -37,6 +37,13 @@
             {
               "client_id": "488573948959-1s6psgq28cn9emktovikkj2b30rf10od.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "488573948959-s5a44an3h63h5l9moi392acte721aidi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.finbul"
+              }
             }
           ]
         }

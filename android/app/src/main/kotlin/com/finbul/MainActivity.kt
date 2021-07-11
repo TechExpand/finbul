@@ -1,4 +1,4 @@
-package com.finbul.fin_bul
+package com.finbul
 
 import io.flutter.embedding.android.FlutterActivity
 

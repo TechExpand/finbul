@@ -1,5 +1,6 @@
-import 'package:fin_bul/Screen/SignUp.dart';
-import 'package:fin_bul/Service/firebase.dart';
+import 'package:finbul/Screen/SignUp.dart';
+import 'package:finbul/Screen/Recover.dart';
+import 'package:finbul/Service/firebase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
@@ -110,29 +111,36 @@ class SignIn extends StatelessWidget {
                           ),
                         )),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder:
-                                (context, animation, secondaryAnimation) {
-                              return SignUpScreen();
-                            },
-                            transitionsBuilder: (context, animation,
-                                secondaryAnimation, child) {
-                              return FadeTransition(
-                                opacity: animation,
-                                child: child,
-                              );
-                            },
-                          ));
-                    },
-                    child: Text(
-                      "Don't have an account?",
-                      style: TextStyle(color: Colors.white),
+                  Align(
+                    alignment:Alignment.topRight,
+                    child: Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.2),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) {
+                                  return RecoverPass();
+                                },
+                                transitionsBuilder: (context, animation,
+                                    secondaryAnimation, child) {
+                                  return FadeTransition(
+                                    opacity: animation,
+                                    child: child,
+                                  );
+                                },
+                              ));
+                        },
+                        child: Text(
+                          "Forget Password?",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     ),
                   ),
+
                   Padding(
                     padding: EdgeInsets.only(top: 34),
                     child: Container(
@@ -177,6 +185,51 @@ class SignIn extends StatelessWidget {
                           ),
                         ),
                       ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width/4,
+                          height:1,
+                          color:Colors.white,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:4.0, right:4, ),
+                          child: Text('or', style: TextStyle(color: Colors.white),),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width/4,
+                          height:1,
+                          color:Colors.white,
+                        )
+                      ],
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) {
+                              return SignUpScreen();
+                            },
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
+                          ));
+                    },
+                    child: Text(
+                      "Don't have an account?",
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                   Spacer()

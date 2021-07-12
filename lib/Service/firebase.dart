@@ -1,9 +1,9 @@
-import 'package:fin_bul/Model/Message.dart';
-import 'package:fin_bul/Model/post.dart';
-import 'package:fin_bul/Model/user.dart';
-import 'package:fin_bul/Screen/HomePage.dart';
-import 'package:fin_bul/Utils/Provider.dart';
-import 'package:fin_bul/Utils/utils.dart';
+import 'package:finbul/Model/Message.dart';
+import 'package:finbul/Model/post.dart';
+import 'package:finbul/Model/user.dart';
+import 'package:finbul/Screen/HomePage.dart';
+import 'package:finbul/Utils/Provider.dart';
+import 'package:finbul/Utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as Path;
@@ -723,13 +723,25 @@ class FirebaseApi {
         });
       });
     });
-    // _scaffoldKey.currentState.showSnackBar(
-    //   SnackBar(
-    //     content: Text('Profile picture updated'),
-    //     backgroundColor: Theme.of(context).errorColor,
-    //   ),
-    // );
   }
+
+
+
+
+
+
+  static sendPassWordResetEmail(email, _scaffoldKey, context){
+    try{
+      FirebaseAuth.instance.sendPasswordResetEmail(email: email).then((value){
+        _scaffoldKey.currentState.showSnackBar(SnackBar(content:Text('Sent Successfully. Check your mail inbox')));
+      });}
+    on FirebaseAuthException catch(e){
+      if (e.code == 'user-not-found') {
+        _scaffoldKey.currentState.showSnackBar(SnackBar(content:Text('This user does not exist.')));
+      }
+    }}
+
+
 
 
 

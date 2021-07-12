@@ -1,9 +1,9 @@
-import 'package:fin_bul/Model/Message.dart';
-import 'package:fin_bul/Service/firebase.dart';
-import 'package:fin_bul/Utils/Provider.dart';
-import 'package:fin_bul/Utils/utils.dart';
-import 'package:fin_bul/Widgets/photoView.dart';
-import 'package:fin_bul/Widgets/recordPlayer.dart';
+import 'package:finbul/Model/Message.dart';
+import 'package:finbul/Service/firebase.dart';
+import 'package:finbul/Utils/Provider.dart';
+import 'package:finbul/Utils/utils.dart';
+import 'package:finbul/Widgets/photoView.dart';
+import 'package:finbul/Widgets/recordPlayer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';

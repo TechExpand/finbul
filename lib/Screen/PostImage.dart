@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:fin_bul/Service/firebase.dart';
-import 'package:fin_bul/Widgets/Switch.dart';
-import 'package:fin_bul/Widgets/icons.dart';
+import 'package:finbul/Service/firebase.dart';
+import 'package:finbul/Widgets/Switch.dart';
+import 'package:finbul/Widgets/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 

@@ -2,7 +2,7 @@
 
 
 
-import 'package:fin_bul/Screen/SignUp.dart';
+import 'package:finbul/Screen/SignUp.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/dot_animation_enum.dart';

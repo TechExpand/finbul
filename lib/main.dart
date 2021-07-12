@@ -1,6 +1,6 @@
-import 'package:fin_bul/Screen/Splash.dart';
-import 'package:fin_bul/Service/Network.dart';
-import 'package:fin_bul/Utils/utils.dart';
+import 'package:finbul/Screen/Splash.dart';
+import 'package:finbul/Service/Network.dart';
+import 'package:finbul/Utils/utils.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

@@ -1,9 +1,9 @@
 // import 'package:fixme/Model/Message.dart';
 // import 'package:fixme/Services/Firebase_service.dart';
 // import 'package:fixme/Services/network_service.dart';
-import 'package:fin_bul/Model/Message.dart';
-import 'package:fin_bul/Service/firebase.dart';
-import 'package:fin_bul/Utils/Provider.dart';
+import 'package:finbul/Model/Message.dart';
+import 'package:finbul/Service/firebase.dart';
+import 'package:finbul/Utils/Provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'message_widget.dart';

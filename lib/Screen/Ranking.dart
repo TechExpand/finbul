@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fin_bul/Model/post.dart';
-import 'package:fin_bul/Screen/Details.dart';
-import 'package:fin_bul/Service/Network.dart';
-import 'package:fin_bul/Service/firebase.dart';
-import 'package:fin_bul/Widgets/icons.dart';
+import 'package:finbul/Model/post.dart';
+import 'package:finbul/Screen/Details.dart';
+import 'package:finbul/Service/Network.dart';
+import 'package:finbul/Service/firebase.dart';
+import 'package:finbul/Widgets/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:provider/provider.dart';

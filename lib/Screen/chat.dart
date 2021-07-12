@@ -7,11 +7,11 @@
 import 'dart:async';
 import 'dart:io' as io;
 import 'package:file/local.dart';
-import 'package:fin_bul/Service/firebase.dart';
-import 'package:fin_bul/Utils/Provider.dart';
-import 'package:fin_bul/Utils/utils.dart';
-import 'package:fin_bul/Widgets/messages_widget.dart';
-import 'package:fin_bul/Widgets/popup_menu.dart';
+import 'package:finbul/Service/firebase.dart';
+import 'package:finbul/Utils/Provider.dart';
+import 'package:finbul/Utils/utils.dart';
+import 'package:finbul/Widgets/messages_widget.dart';
+import 'package:finbul/Widgets/popup_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_audio_recorder/flutter_audio_recorder.dart';

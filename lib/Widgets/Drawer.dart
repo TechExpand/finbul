@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:fin_bul/Screen/Login.dart';
-import 'package:fin_bul/Screen/Profile.dart';
+import 'package:finbul/Screen/Login.dart';
+import 'package:finbul/Screen/Profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';

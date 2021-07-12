@@ -1,5 +1,5 @@
-import 'package:fin_bul/Screen/Login.dart';
-import 'package:fin_bul/Service/firebase.dart';
+import 'package:finbul/Screen/Login.dart';
+import 'package:finbul/Service/firebase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -67,7 +67,7 @@ class SignUpScreen extends StatelessWidget {
                         hintStyle: TextStyle(color: Colors.white30),
                         labelStyle: TextStyle(color: Colors.white30),
                         labelText: 'Username',
-                        hintText: '@finbu',
+                        hintText: 'finbu',
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white, width: 1),
                         ),
@@ -97,7 +97,7 @@ class SignUpScreen extends StatelessWidget {
                         hintStyle: TextStyle(color: Colors.white30),
                         labelStyle: TextStyle(color: Colors.white30),
                         labelText: 'Phone',
-                        hintText: '0987633244',
+                        hintText: 'e.g +27820000000',
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white, width: 1),
                         ),

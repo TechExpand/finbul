@@ -1,7 +1,7 @@
 // https://financialmodelingprep.com/api/v3/stock/list?apikey=345f1441101ef0e024d8cf2d3fad387b
 
-import 'package:fin_bul/Model/Stock.dart';
-import 'package:fin_bul/Screen/TimeSeries.dart';
+import 'package:finbul/Model/Stock.dart';
+import 'package:finbul/Screen/TimeSeries.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';

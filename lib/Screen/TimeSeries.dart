@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:fin_bul/Service/Network.dart';
+import 'package:finbul/Service/Network.dart';
 import 'package:http/http.dart' as http;
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';

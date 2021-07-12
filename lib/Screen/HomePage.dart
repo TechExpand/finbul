@@ -1,15 +1,15 @@
 import 'dart:io';
 import 'dart:ui';
 
-import 'package:fin_bul/Screen/MyChats.dart';
-import 'package:fin_bul/Screen/Ranking.dart';
-import 'package:fin_bul/Screen/SearchPage.dart';
-import 'package:fin_bul/Screen/WatchList.dart';
-import 'package:fin_bul/Screen/chat.dart';
-import 'package:fin_bul/Screen/feed.dart';
-import 'package:fin_bul/Utils/Provider.dart';
-import 'package:fin_bul/Widgets/Drawer.dart';
-import 'package:fin_bul/Widgets/icons.dart';
+import 'package:finbul/Screen/MyChats.dart';
+import 'package:finbul/Screen/Ranking.dart';
+import 'package:finbul/Screen/SearchPage.dart';
+import 'package:finbul/Screen/WatchList.dart';
+import 'package:finbul/Screen/chat.dart';
+import 'package:finbul/Screen/feed.dart';
+import 'package:finbul/Utils/Provider.dart';
+import 'package:finbul/Widgets/Drawer.dart';
+import 'package:finbul/Widgets/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:provider/provider.dart';

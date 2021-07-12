@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fin_bul/Service/firebase.dart';
-import 'package:fin_bul/Utils/Provider.dart';
-import 'package:fin_bul/Utils/utils.dart';
+import 'package:finbul/Service/firebase.dart';
+import 'package:finbul/Utils/Provider.dart';
+import 'package:finbul/Utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:fin_bul/Model/UserChat.dart';
+import 'package:finbul/Model/UserChat.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';

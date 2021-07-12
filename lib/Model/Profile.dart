@@ -1,4 +1,4 @@
-import 'package:fin_bul/Utils/utils.dart';
+import 'package:finbul/Utils/utils.dart';
 
 class MessageField {
   static final String createdAt = 'createdAt';

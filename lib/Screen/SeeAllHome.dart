@@ -1,8 +1,8 @@
 
 
-import 'package:fin_bul/Screen/Detail2.dart';
-import 'package:fin_bul/Service/Network.dart';
-import 'package:fin_bul/Widgets/Drawer.dart';
+import 'package:finbul/Screen/Detail2.dart';
+import 'package:finbul/Service/Network.dart';
+import 'package:finbul/Widgets/Drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:provider/provider.dart';

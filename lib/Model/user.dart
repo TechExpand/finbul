@@ -1,4 +1,4 @@
-import 'package:fin_bul/Utils/utils.dart';
+import 'package:finbul/Utils/utils.dart';
 import 'package:meta/meta.dart';
 
 class UserField {

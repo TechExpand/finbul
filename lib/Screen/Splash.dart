@@ -1,7 +1,7 @@
-import 'package:fin_bul/Screen/HomePage.dart';
-import 'package:fin_bul/Screen/SignUp.dart';
-import 'package:fin_bul/Screen/intro.dart';
-import 'package:fin_bul/Utils/Provider.dart';
+import 'package:finbul/Screen/HomePage.dart';
+import 'package:finbul/Screen/SignUp.dart';
+import 'package:finbul/Screen/intro.dart';
+import 'package:finbul/Utils/Provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_update/in_app_update.dart';

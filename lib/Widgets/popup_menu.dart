@@ -1,9 +1,9 @@
 // import 'package:fixme/Screens/GeneralUsers/Chat/ChatFiles.dart';
 // import 'package:fixme/Services/Firebase_service.dart';
 // import 'package:fixme/Services/network_service.dart';
-import 'package:fin_bul/Service/firebase.dart';
-import 'package:fin_bul/Utils/Provider.dart';
-import 'package:fin_bul/Widgets/chatfile.dart';
+import 'package:finbul/Service/firebase.dart';
+import 'package:finbul/Utils/Provider.dart';
+import 'package:finbul/Widgets/chatfile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

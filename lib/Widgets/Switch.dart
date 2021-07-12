@@ -1,5 +1,5 @@
 
-import 'package:fin_bul/Widgets/icons.dart';
+import 'package:finbul/Widgets/icons.dart';
 import 'package:flutter/material.dart';
 
 enum Status {

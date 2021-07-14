@@ -88,7 +88,9 @@ class ProfilesState extends State<Profiles>
 
                       switch (snapshot.connectionState) {
                         case ConnectionState.waiting:
-                          return Center(child: CircularProgressIndicator());
+                          return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                         default:
                           if (snapshot.hasError) {
                             return Container(
@@ -352,7 +354,9 @@ class ProfilesState extends State<Profiles>
                                                         .waiting:
                                                       return Center(
                                                           child:
-                                                              CircularProgressIndicator());
+                                                              CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                                     default:
                                                       if (snapshot.hasError) {
                                                         return Container(
@@ -537,7 +541,7 @@ class ProfilesState extends State<Profiles>
                                                                         Row(
                                                                           children: [
                                                                             SizedBox(
-                                                                              width: 60,
+                                                                              width: 50,
                                                                             ),
                                                                             Expanded(
                                                                                 child: Column(
@@ -589,7 +593,7 @@ class ProfilesState extends State<Profiles>
                                                                                             ),
 
                                                                                             SizedBox(
-                                                                                              width: 20,
+                                                                                              width: 10,
                                                                                             ),
                                                                                             Row(
                                                                                               children: [
@@ -608,7 +612,7 @@ class ProfilesState extends State<Profiles>
                                                                                             ),
 
                                                                                             SizedBox(
-                                                                                              width: 20,
+                                                                                              width: 10,
                                                                                             ),
                                                                                             Row(
                                                                                               children: [
@@ -627,7 +631,7 @@ class ProfilesState extends State<Profiles>
                                                                                             ),
 
                                                                                             SizedBox(
-                                                                                              width: 20,
+                                                                                              width: 10,
                                                                                             ),
                                                                                             Row(
                                                                                               children: [
@@ -654,7 +658,7 @@ class ProfilesState extends State<Profiles>
                                                                                             //   size: 18,
                                                                                             // ),
                                                                                             SizedBox(
-                                                                                              width: 10,
+                                                                                              width: 5,
                                                                                             ),
                                                                                             Padding(
                                                                                               padding: EdgeInsets.only(bottom: verifiedPosts[index1].status == 'Bull' || verifiedPosts[index1].status == 'Bear' ? 8.0 : 0),
@@ -693,7 +697,9 @@ class ProfilesState extends State<Profiles>
                                                 } else {
                                                   return Center(
                                                       child:
-                                                          CircularProgressIndicator());
+                                                          CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                                 }
                                               },
                                             ),
@@ -708,7 +714,9 @@ class ProfilesState extends State<Profiles>
                           }
                       }
                     } else {
-                      return Center(child: CircularProgressIndicator());
+                      return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                     }
                   },
                 ),

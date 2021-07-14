@@ -126,7 +126,9 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                CircularProgressIndicator(),
+                                CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+),
                                 SizedBox(
                                   height: 10,
                                 ),
@@ -239,7 +241,9 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                   case ConnectionState.waiting:
                                                     return Center(
                                                         child:
-                                                            CircularProgressIndicator());
+                                                            CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                                   default:
                                                     if (snapshotstream
                                                         .hasError) {
@@ -429,7 +433,9 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                               } else {
                                                 return Center(
                                                     child:
-                                                        CircularProgressIndicator());
+                                                        CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                               }
                                             }),
                                       ],
@@ -566,7 +572,9 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                           case ConnectionState.waiting:
                                             return Center(
                                                 child:
-                                                    CircularProgressIndicator());
+                                                    CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                           default:
                                             if (snapshots.hasError) {
                                               return Container(
@@ -820,7 +828,9 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                         }
                                       } else {
                                         return Center(
-                                            child: CircularProgressIndicator());
+                                            child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                       }
                                     }),
                                 Padding(
@@ -879,7 +889,9 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                               case ConnectionState.waiting:
                                                 return Center(
                                                     child:
-                                                        CircularProgressIndicator());
+                                                        CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                               default:
                                                 if (snapshot.hasError) {
                                                   return Container(
@@ -928,7 +940,9 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                                 .waiting:
                                                               return Center(
                                                                   child:
-                                                                      CircularProgressIndicator());
+                                                                      CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                                             default:
                                                               if (snapshot
                                                                   .hasError) {
@@ -1124,7 +1138,7 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                                                 Row(
                                                                                   children: [
                                                                                     SizedBox(
-                                                                                      width: 60,
+                                                                                      width: 50,
                                                                                     ),
                                                                                     Expanded(
                                                                                         child: Column(
@@ -1165,7 +1179,7 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                                                                 ),
 
                                                                                               SizedBox(
-                                                                                                width: 20,
+                                                                                                width: 10,
                                                                                               ),
                                                                                                Row(
                                                                                                   children: [
@@ -1181,7 +1195,7 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                                                                 ),
 
                                                                                               SizedBox(
-                                                                                                width: 20,
+                                                                                                width: 10,
                                                                                               ),
                                                                                               Row(
                                                                                                   children: [
@@ -1196,7 +1210,7 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                                                                   ],
                                                                                                 ),
                                                                                               SizedBox(
-                                                                                                width: 20,
+                                                                                                width: 10,
                                                                                               ),
                                                                                               Row(
                                                                                                 children: [
@@ -1256,7 +1270,9 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                         } else {
                                                           return Center(
                                                               child:
-                                                                  CircularProgressIndicator());
+                                                                  CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                                         }
                                                       },
                                                     );
@@ -1266,7 +1282,9 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                           } else {
                                             return Center(
                                                 child:
-                                                    CircularProgressIndicator());
+                                                    CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                           }
                                         },
                                       ),
@@ -1288,7 +1306,9 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                             CrossAxisAlignment
                                                                 .center,
                                                         children: [
-                                                          CircularProgressIndicator(),
+                                                          CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+),
                                                           SizedBox(
                                                             height: 10,
                                                           ),

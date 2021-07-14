@@ -87,7 +87,9 @@ class MediaWidget extends StatelessWidget {
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
-              return Center(child: CircularProgressIndicator());
+              return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
             default:
               if (snapshot.hasError) {
                 return buildText('Something Went Wrong Try later');
@@ -236,7 +238,9 @@ class DocWidget extends StatelessWidget {
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
-              return Center(child: CircularProgressIndicator());
+              return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
             default:
               if (snapshot.hasError) {
                 return buildText('Something Went Wrong Try later');
@@ -301,7 +305,9 @@ class LinkWidget extends StatelessWidget {
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
-              return Center(child: CircularProgressIndicator());
+              return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
             default:
               if (snapshot.hasError) {
                 return buildText('Something Went Wrong Try later');

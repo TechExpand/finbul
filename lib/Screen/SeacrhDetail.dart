@@ -125,7 +125,9 @@ class SearchDetailsState extends State<SearchDetails>
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                CircularProgressIndicator(),
+                                CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+),
                                 SizedBox(
                                   height: 10,
                                 ),
@@ -200,7 +202,9 @@ class SearchDetailsState extends State<SearchDetails>
                                                   case ConnectionState.waiting:
                                                     return Center(
                                                         child:
-                                                            CircularProgressIndicator());
+                                                            CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                                   default:
                                                     if (snapshotstream.hasError) {
                                                       return Container(
@@ -374,7 +378,9 @@ class SearchDetailsState extends State<SearchDetails>
                                               } else {
                                                 return Center(
                                                     child:
-                                                        CircularProgressIndicator());
+                                                        CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                               }
                                             }),
                                       ],
@@ -505,7 +511,9 @@ class SearchDetailsState extends State<SearchDetails>
 
                                         switch (snapshots.connectionState) {
                                           case ConnectionState.waiting:
-                                            return Center(child: CircularProgressIndicator());
+                                            return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                           default:
                                             if (snapshots.hasError) {
                                               return Container(
@@ -676,7 +684,9 @@ class SearchDetailsState extends State<SearchDetails>
                                             }
                                         }
                                       } else {
-                                        return Center(child: CircularProgressIndicator());
+                                        return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                       }
                                     }),
 
@@ -736,7 +746,9 @@ class SearchDetailsState extends State<SearchDetails>
                                               case ConnectionState.waiting:
                                                 return Center(
                                                     child:
-                                                        CircularProgressIndicator());
+                                                        CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                               default:
                                                 if (snapshot.hasError) {
                                                   return Container(
@@ -785,7 +797,9 @@ class SearchDetailsState extends State<SearchDetails>
                                                                 .waiting:
                                                               return Center(
                                                                   child:
-                                                                      CircularProgressIndicator());
+                                                                      CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                                             default:
                                                               if (snapshot
                                                                   .hasError) {
@@ -977,7 +991,7 @@ class SearchDetailsState extends State<SearchDetails>
                                                                                 Row(
                                                                                   children: [
                                                                                     SizedBox(
-                                                                                      width: 60,
+                                                                                      width: 50,
                                                                                     ),
                                                                                     Expanded(
                                                                                         child: Column(
@@ -1014,7 +1028,7 @@ class SearchDetailsState extends State<SearchDetails>
                                                                                                 ),
 
                                                                                               SizedBox(
-                                                                                                width: 20,
+                                                                                                width: 10,
                                                                                               ),
 
                                                                                              Row(
@@ -1032,7 +1046,7 @@ class SearchDetailsState extends State<SearchDetails>
                                                                                                 ),
 
                                                                                               SizedBox(
-                                                                                                width: 20,
+                                                                                                width: 10,
                                                                                               ),
                                                                                                Row(
                                                                                                   children: [
@@ -1047,7 +1061,7 @@ class SearchDetailsState extends State<SearchDetails>
                                                                                                   ],
                                                                                                 ),
                                                                                               SizedBox(
-                                                                                                width: 20,
+                                                                                                width: 10,
                                                                                               ),
                                                                                               Row(
                                                                                                 children: [
@@ -1109,7 +1123,9 @@ class SearchDetailsState extends State<SearchDetails>
                                                         } else {
                                                           return Center(
                                                               child:
-                                                                  CircularProgressIndicator());
+                                                                  CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                                         }
                                                       },
                                                     );
@@ -1119,7 +1135,9 @@ class SearchDetailsState extends State<SearchDetails>
                                           } else {
                                             return Center(
                                                 child:
-                                                    CircularProgressIndicator());
+                                                    CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                           }
                                         },
                                       ),
@@ -1141,7 +1159,9 @@ class SearchDetailsState extends State<SearchDetails>
                                                             CrossAxisAlignment
                                                                 .center,
                                                         children: [
-                                                          CircularProgressIndicator(),
+                                                          CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+),
                                                           SizedBox(
                                                             height: 10,
                                                           ),

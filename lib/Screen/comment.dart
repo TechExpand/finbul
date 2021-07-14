@@ -203,7 +203,9 @@ scaffoldkey.currentState.openDrawer();
                             .waiting:
                           return Center(
                               child:
-                              CircularProgressIndicator());
+                              CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                         default:
                           if (snapshot
                               .hasError) {
@@ -247,7 +249,9 @@ scaffoldkey.currentState.openDrawer();
                                             .waiting:
                                           return Center(
                                               child:
-                                              CircularProgressIndicator());
+                                              CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                         default:
                                           if (snapshots1
                                               .hasError) {
@@ -455,7 +459,10 @@ scaffoldkey.currentState.openDrawer();
                                                               Container(
                                                                 child: FlatButton(
                                                                   disabledColor: Color(0xFFFEB904),
-                                                                  onPressed: () {
+                                                                  onPressed: _controller.text.isEmpty?(){
+                                                                    scaffoldkey.currentState.showSnackBar(SnackBar(content: Text('Field cannot be empty!'),));
+                                                                  }
+                                                                      : () {
                                                                     FocusScopeNode currentFocus =
                                                                     FocusScope.of(context);
                                                                     if (!currentFocus.hasPrimaryFocus) {
@@ -723,7 +730,7 @@ scaffoldkey.currentState.openDrawer();
                                                                Row(
                                                                     children: [
                                                                       SizedBox(
-                                                                        width: 50,
+                                                                        width: 40,
                                                                       ),
                                                                        Row(
                                                                           children: [
@@ -742,7 +749,7 @@ scaffoldkey.currentState.openDrawer();
                                                                         ),
 
                                                                       SizedBox(
-                                                                        width: 20,
+                                                                        width: 10,
                                                                       ),
                                                                        Row(
                                                                           children: [
@@ -765,7 +772,7 @@ scaffoldkey.currentState.openDrawer();
 
 
                                                                       SizedBox(
-                                                                        width: 20,
+                                                                        width: 10,
                                                                       ),
                                                                        Row(
                                                                           children: [
@@ -788,7 +795,7 @@ scaffoldkey.currentState.openDrawer();
 
 
                                                                       SizedBox(
-                                                                        width: 20,
+                                                                        width: 10,
                                                                       ),
 
 
@@ -808,7 +815,7 @@ scaffoldkey.currentState.openDrawer();
                                                                           ],
                                                                       ),
                                                                       SizedBox(
-                                                                        width: 20,
+                                                                        width: 10,
                                                                       ),
                                                                       Padding(
                                                                         padding:  EdgeInsets.only(bottom:   snapshots1.data['status']=='Bull' ||  snapshots1.data['status']=='Bear'? 8.0:0),
@@ -855,7 +862,9 @@ scaffoldkey.currentState.openDrawer();
                                                                             .waiting:
                                                                           return Center(
                                                                               child:
-                                                                              CircularProgressIndicator());
+                                                                              CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                                                         default:
                                                                           if (snapshot
                                                                               .hasError) {
@@ -1176,7 +1185,9 @@ scaffoldkey.currentState.openDrawer();
                                                                     } else {
                                                                       return Center(
                                                                           child:
-                                                                          CircularProgressIndicator());
+                                                                          CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                                                     }
                                                                   },
                                                                 ),
@@ -1197,7 +1208,9 @@ scaffoldkey.currentState.openDrawer();
                                     } else {
                                       return Center(
                                           child:
-                                          CircularProgressIndicator());
+                                          CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                     }
                                   },
                                 );
@@ -1208,7 +1221,9 @@ scaffoldkey.currentState.openDrawer();
                     } else {
                       return Center(
                           child:
-                          CircularProgressIndicator());
+                          CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                     }
                   },
                 ),

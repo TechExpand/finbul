@@ -66,7 +66,9 @@ class RankingState extends State<Ranking> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                CircularProgressIndicator(),
+                                CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+),
                                 SizedBox(
                                   height: 10,
                                 ),
@@ -248,7 +250,9 @@ class RankingState extends State<Ranking> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                CircularProgressIndicator(),
+                                CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+),
                                 SizedBox(
                                   height: 10,
                                 ),
@@ -453,7 +457,9 @@ class RankingState extends State<Ranking> {
 
                       switch (snapshot.connectionState) {
                         case ConnectionState.waiting:
-                          return Center(child: CircularProgressIndicator());
+                          return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                         default:
                           if (snapshot.hasError) {
                             return Container(
@@ -591,7 +597,9 @@ class RankingState extends State<Ranking> {
                           }
                       }
                     } else {
-                      return Center(child: CircularProgressIndicator());
+                      return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                     }
                   }),
               Padding(

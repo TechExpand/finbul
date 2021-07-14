@@ -174,7 +174,9 @@ class Details2State extends State<Details2>
                                     case ConnectionState.waiting:
                                       return Center(
                                           child:
-                                          CircularProgressIndicator());
+                                          CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                     default:
                                       if (snapshotstream.hasError) {
                                         return Container(
@@ -348,7 +350,9 @@ class Details2State extends State<Details2>
                                 } else {
                                   return Center(
                                       child:
-                                      CircularProgressIndicator());
+                                      CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                 }
                               }),
                         ],
@@ -470,7 +474,9 @@ class Details2State extends State<Details2>
 
                           switch (snapshot.connectionState) {
                             case ConnectionState.waiting:
-                              return Center(child: CircularProgressIndicator());
+                              return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                             default:
                               if (snapshot.hasError) {
                                 return Container(
@@ -642,7 +648,9 @@ class Details2State extends State<Details2>
                               }
                           }
                         } else {
-                          return Center(child: CircularProgressIndicator());
+                          return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                         }
                       }),
 
@@ -699,7 +707,9 @@ class Details2State extends State<Details2>
                               switch (snapshot.connectionState) {
                                 case ConnectionState.waiting:
                                   return Center(
-                                      child: CircularProgressIndicator());
+                                      child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                 default:
                                   if (snapshot.hasError) {
                                     return Container(
@@ -735,7 +745,9 @@ class Details2State extends State<Details2>
                                               case ConnectionState.waiting:
                                                 return Center(
                                                     child:
-                                                        CircularProgressIndicator());
+                                                        CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                               default:
                                                 if (snapshot.hasError) {
                                                   return Container(
@@ -966,7 +978,7 @@ class Details2State extends State<Details2>
                                                                     children: [
                                                                       SizedBox(
                                                                         width:
-                                                                            60,
+                                                                            50,
                                                                       ),
                                                                       Expanded(
                                                                           child:
@@ -1012,7 +1024,7 @@ class Details2State extends State<Details2>
                                                                                   ),
 
                                                                                 SizedBox(
-                                                                                  width: 20,
+                                                                                  width: 10,
                                                                                 ),
 
                                                                                 Row(
@@ -1029,7 +1041,7 @@ class Details2State extends State<Details2>
                                                                                   ),
 
                                                                                 SizedBox(
-                                                                                  width: 20,
+                                                                                  width: 10,
                                                                                 ),
                                                                                  Row(
                                                                                     children: [
@@ -1044,7 +1056,7 @@ class Details2State extends State<Details2>
                                                                                     ],
                                                                                   ),
                                                                                 SizedBox(
-                                                                                  width: 20,
+                                                                                  width: 10,
                                                                                 ),
                                                                                 Row(
                                                                                   children: [
@@ -1107,7 +1119,9 @@ class Details2State extends State<Details2>
                                           } else {
                                             return Center(
                                                 child:
-                                                    CircularProgressIndicator());
+                                                    CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                           }
                                         },
                                       );
@@ -1115,7 +1129,9 @@ class Details2State extends State<Details2>
                                   }
                               }
                             } else {
-                              return Center(child: CircularProgressIndicator());
+                              return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                             }
                           },
                         ),
@@ -1132,7 +1148,9 @@ class Details2State extends State<Details2>
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            CircularProgressIndicator(),
+                                            CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+),
                                             SizedBox(
                                               height: 10,
                                             ),

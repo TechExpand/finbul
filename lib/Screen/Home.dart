@@ -184,7 +184,9 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CircularProgressIndicator(),
+                          CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+),
                           SizedBox(
                             height: 10,
                           ),
@@ -333,21 +335,21 @@ class _HomeState extends State<Home> {
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              data2[index].symbol??'',
+                                              data2[index].symbol.toString()??'',
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.bold),
                                             ),
 
                                             Text(
-                                              data2[index].close??'',
+                                              data2[index].close.toString()??'',
                                               style: TextStyle(
                                                 color: Colors.white,
                                               ),
                                             ),
 
                                             Text(
-                                              '${data2[index].percent_change??''}%',
+                                              '${data2[index].percent_change.toString()??''}%',
                                               style: TextStyle(
                                                 color: Colors.white,
                                               ),
@@ -356,16 +358,16 @@ class _HomeState extends State<Home> {
                                             Container(
                                               decoration: BoxDecoration(
                                                   color: data2[index].change.toString().contains('-')? Colors.red
-                                                      .withOpacity(0.2):data2[index].change==null?null:Color(0xFF26D375)
+                                                      .withOpacity(0.2):data2[index].change.toString()==null?null:Color(0xFF26D375)
                                                       .withOpacity(0.2),
                                                   borderRadius:
                                                       BorderRadius.circular(2)),
                                               child: Padding(
                                                 padding:
                                                     const EdgeInsets.all(2.0),
-                                                child: Text('${data2[index].change??''}',
+                                                child: Text('${data2[index].change.toString()??''}',
                                                     style: TextStyle(
-                                                      color: data2[index].change.toString().contains('-')?Colors.red: data2[index].change==null?null:Color(0xFF26D375),
+                                                      color: data2[index].change.toString().contains('-')?Colors.red: data2[index].change.toString()==null?null:Color(0xFF26D375),
                                                       fontWeight: FontWeight.bold,
                                                     )),
                                               ),
@@ -385,7 +387,9 @@ class _HomeState extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              CircularProgressIndicator(),
+                              CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+),
                               SizedBox(
                                 height: 10,
                               ),

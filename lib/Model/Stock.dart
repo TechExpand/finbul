@@ -12,12 +12,12 @@ class Symbol2 {
 
   static Symbol2 fromJson(Map<String, dynamic> json) => Symbol2(
       symbol: json['symbol'],
-      instrument_name: json['instrument_name']
+      instrument_name: json['name']
   );
 
   Map<String, dynamic> toJson() => {
     'symbol': symbol,
-    'instrument_name':instrument_name,
+    'name':instrument_name,
   };
 }
 
@@ -149,16 +149,16 @@ class SqouteDetail {
   final String symbol;
   final String name;
   final String exchange;
-  final double datetime;
+  final int datetime;
   final double open;
   final double high;
   final double low;
   final double close;
-  final double volume;
+  final int volume;
   final double previous_close;
   final double change;
   final double percent_change;
-  final double average_volume;
+  final int average_volume;
 
   const SqouteDetail({
     @required this.symbol,

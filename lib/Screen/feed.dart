@@ -82,7 +82,9 @@ class FeedState extends State<Feed> {
 
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
-                return Center(child: CircularProgressIndicator());
+                return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
               default:
                 if (snapshot.hasError) {
                   return Container(
@@ -292,7 +294,10 @@ class FeedState extends State<Feed> {
                                       Container(
                                         child: FlatButton(
                                           disabledColor: Color(0xFFFEB904),
-                                          onPressed: () {
+                                          onPressed: _controller.text.isEmpty?(){
+                                            scaffoldkey.currentState.showSnackBar(SnackBar(content: Text('Field cannot be empty!'),));
+                                          }
+                                          :() {
                                             FocusScopeNode currentFocus =
                                                 FocusScope.of(context);
                                             if (!currentFocus.hasPrimaryFocus) {
@@ -377,7 +382,9 @@ class FeedState extends State<Feed> {
                                   switch (snapshot.connectionState) {
                                     case ConnectionState.waiting:
                                       return Center(
-                                          child: CircularProgressIndicator());
+                                          child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                     default:
                                       if (snapshot.hasError) {
                                         return Container(
@@ -710,7 +717,7 @@ class FeedState extends State<Feed> {
                                                                             
 
                                                                             SizedBox(
-                                                                              width: 20,
+                                                                              width: 10,
                                                                             ),
                                                                             
                                                                               Row(
@@ -738,7 +745,7 @@ class FeedState extends State<Feed> {
                                                                               ),
                                                                             
                                                                             SizedBox(
-                                                                              width: 20,
+                                                                              width: 10,
                                                                             ),
                                                                             
                                                                               Row(
@@ -764,7 +771,7 @@ class FeedState extends State<Feed> {
                                                                                 ],
                                                                               ),
                                                                             SizedBox(
-                                                                              width: 20,
+                                                                              width: 10,
                                                                             ),
 
 
@@ -787,7 +794,7 @@ class FeedState extends State<Feed> {
                                                                               ],
                                                                             ),
                                                                             SizedBox(
-                                                                              width: 10,
+                                                                              width: 5,
                                                                             ),
                                                                             Padding(
                                                                               padding:  EdgeInsets.only(bottom: verifiedPosts[index1].status=='Bull' ||verifiedPosts[index1].status=='Bear'? 8.0:0),
@@ -832,7 +839,9 @@ class FeedState extends State<Feed> {
                                   }
                                 } else {
                                   return Center(
-                                      child: CircularProgressIndicator());
+                                      child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                                 }
                               },
                             ),
@@ -844,7 +853,9 @@ class FeedState extends State<Feed> {
                 }
             }
           } else {
-            return Center(child: CircularProgressIndicator());
+            return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
           }
         },
       ),
@@ -871,7 +882,9 @@ class subComment extends StatelessWidget {
 
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
-              return Center(child: CircularProgressIndicator());
+              return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
             default:
               if (snapshot.hasError) {
                 return Container(
@@ -1209,7 +1222,9 @@ class subComment extends StatelessWidget {
               }
           }
         } else {
-          return Center(child: CircularProgressIndicator());
+          return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
         }
       },
     );

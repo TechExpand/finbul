@@ -61,7 +61,9 @@ class _ListenIncomingState extends State<ListenIncoming> {
                               a.lastMessageTime.compareTo(b.lastMessageTime));
                         switch (snapshot.connectionState) {
                           case ConnectionState.waiting:
-                            return Center(child: CircularProgressIndicator());
+                            return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                           default:
                             if (snapshot.hasError) {
                               return buildText(
@@ -135,7 +137,9 @@ class _ListenIncomingState extends State<ListenIncoming> {
                             }
                         }
                       } else {
-                        return Center(child: CircularProgressIndicator());
+                        return Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+));
                       }
                     },
                   ),

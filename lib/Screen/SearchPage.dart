@@ -139,7 +139,9 @@ class SearchResultState extends State<SearchResult> {
                 fontWeight: FontWeight.w600),)))
             : !snapshot.hasData
             ? Expanded(
-            child: Center(child: CircularProgressIndicator()))
+            child: Center(child: CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+)))
             : snapshot.hasData && snapshot.data.length != 0
             ? Expanded(
           child: ListView.builder(

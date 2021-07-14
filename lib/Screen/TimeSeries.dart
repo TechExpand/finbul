@@ -95,7 +95,9 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            CircularProgressIndicator(),
+                            CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+),
                             SizedBox(
                               height: 10,
                             ),
@@ -213,7 +215,9 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        CircularProgressIndicator(),
+                        CircularProgressIndicator(
+     valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
+),
                         SizedBox(
                           height: 10,
                         ),

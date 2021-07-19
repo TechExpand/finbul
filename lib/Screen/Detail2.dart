@@ -401,53 +401,11 @@ class Details2State extends State<Details2>
                   StatefulBuilder(builder: (context, setState) {
                     return Column(
                       children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 15),
-                          height: 30,
-                          child: ListView.builder(
-                            itemCount: date.length,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    selectedIndex = index;
-                                    selectedValue = date[index];
-
-                                  });
-                                  ItemDetailsPage(
-                                      symbol: widget.data.symbol.toString(),
-                                      data: SelectedValue(selectedValue));
-                                },
-                                child: Container(
-                                  margin: EdgeInsets.only(right: 8),
-                                  height: 30,
-                                  child: Center(
-                                      child: Text(
-                                    '${date[index]}',
-                                    style: TextStyle(
-                                        color: selectedIndex == index
-                                            ? Color(0xFF403477)
-                                            : Colors.white),
-                                  )),
-                                  width: 70,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.white),
-                                    borderRadius: BorderRadius.circular(15),
-                                    color: selectedIndex == index
-                                        ? Colors.white
-                                        : Colors.transparent,
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
                         Center(
                             child: Container(
                                 child: ItemDetailsPage(
                                     symbol: widget.data.symbol.toString(),
-                                    data: SelectedValue(selectedValue)))),
+                                   ))),
                       ],
                     );
                   }),
@@ -1024,7 +982,7 @@ class Details2State extends State<Details2>
                                                                                   ),
 
                                                                                 SizedBox(
-                                                                                  width: 10,
+                                                                                  width: 5,
                                                                                 ),
 
                                                                                 Row(
@@ -1041,7 +999,7 @@ class Details2State extends State<Details2>
                                                                                   ),
 
                                                                                 SizedBox(
-                                                                                  width: 10,
+                                                                                  width: 5,
                                                                                 ),
                                                                                  Row(
                                                                                     children: [
@@ -1056,7 +1014,7 @@ class Details2State extends State<Details2>
                                                                                     ],
                                                                                   ),
                                                                                 SizedBox(
-                                                                                  width: 10,
+                                                                                  width: 5,
                                                                                 ),
                                                                                 Row(
                                                                                   children: [

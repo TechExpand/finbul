@@ -26,21 +26,11 @@ TextEditingController controller = TextEditingController();
     return Scaffold(
       backgroundColor: Color(0xFF372C6A),
       key: _scaffoldKey,
-      drawer: Draw(),
       appBar: AppBar(
         backgroundColor: Color(0xFF372C6A),
           title: const Text('Reset Password'),
           elevation: 0,
-          actions: [
-            IconButton(
-                icon: Icon(
-                  Icons.segment,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  _scaffoldKey.currentState.openDrawer();
-                })
-          ],
+
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);

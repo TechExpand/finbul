@@ -730,7 +730,7 @@ scaffoldkey.currentState.openDrawer();
                                                                Row(
                                                                     children: [
                                                                       SizedBox(
-                                                                        width: 40,
+                                                                        width: 30,
                                                                       ),
                                                                        Row(
                                                                           children: [
@@ -749,7 +749,7 @@ scaffoldkey.currentState.openDrawer();
                                                                         ),
 
                                                                       SizedBox(
-                                                                        width: 10,
+                                                                        width: 5,
                                                                       ),
                                                                        Row(
                                                                           children: [
@@ -772,7 +772,7 @@ scaffoldkey.currentState.openDrawer();
 
 
                                                                       SizedBox(
-                                                                        width: 10,
+                                                                        width: 5,
                                                                       ),
                                                                        Row(
                                                                           children: [
@@ -795,7 +795,7 @@ scaffoldkey.currentState.openDrawer();
 
 
                                                                       SizedBox(
-                                                                        width: 10,
+                                                                        width: 5,
                                                                       ),
 
 
@@ -815,7 +815,7 @@ scaffoldkey.currentState.openDrawer();
                                                                           ],
                                                                       ),
                                                                       SizedBox(
-                                                                        width: 10,
+                                                                        width: 5,
                                                                       ),
                                                                       Padding(
                                                                         padding:  EdgeInsets.only(bottom:   snapshots1.data['status']=='Bull' ||  snapshots1.data['status']=='Bear'? 8.0:0),

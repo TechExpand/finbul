@@ -251,27 +251,26 @@ print(squote);
   }
 
 
-  Future<dynamic> getCoinsTimeSeries(String filter,String symbol) async {
+  Future<dynamic> getCoinsTimeSeries(String symbol, url) async {
+    //https://financialmodelingprep.com/api/v3/historical-price-full/AAPL?from=2018-03-12&to=2019-03-12&apikey=345f1441101ef0e024d8cf2d3fad387b
+    //https://api.twelvedata.com/time_series?symbol=$symbol&interval=$filter&outputsize=40&apikey=38afea301d2f4e328cde9f8287c1ebc1
       var response = await http.get(
           Uri.parse(
-              'https://api.twelvedata.com/time_series?symbol=$symbol&interval=$filter&outputsize=40&apikey=38afea301d2f4e328cde9f8287c1ebc1'),
+              '$url'),
           headers: {
             "Content-type": "application/x-www-form-urlencoded",
             //  'Authorization': 'Bearer $bearer',
           });
       //
       final extractdata =  await json.decode(response.body);
-      List body =  extractdata['values'];
-      print(response.body);
-      print("${response.statusCode} $filter $symbol");
-      print("$body ${response.statusCode} $filter $symbol");
+      List body =  extractdata['historical'];
+      // print("${response.statusCode} $filter $symbol");
+      // print("$body ${response.statusCode} $filter $symbol");
       List<TimeSeriesPrice> search = body.map((data) {
         return TimeSeriesPrice.fromJson(data);
       }).toSet().toList();
-
       if (response.statusCode == 500) {} else {
-
-
+        print(search);
         return search;
       }
   }

@@ -300,6 +300,7 @@ class _HomePageState extends State<HomePage>
                     ),
                   )),
                   TabBar(
+
                     controller: _tabController,
                     unselectedLabelColor: Color(0xFF705FBB),
                     labelColor:  Color(0xFFFEB904),
@@ -328,6 +329,7 @@ class _HomePageState extends State<HomePage>
             ),
             Expanded(
               child: TabBarView(
+                physics: NeverScrollableScrollPhysics(),
                 controller: _tabController,
                 children: [
                   Home(),

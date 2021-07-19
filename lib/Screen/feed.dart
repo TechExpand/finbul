@@ -717,7 +717,7 @@ class FeedState extends State<Feed> {
                                                                             
 
                                                                             SizedBox(
-                                                                              width: 10,
+                                                                              width: 5,
                                                                             ),
                                                                             
                                                                               Row(
@@ -745,7 +745,7 @@ class FeedState extends State<Feed> {
                                                                               ),
                                                                             
                                                                             SizedBox(
-                                                                              width: 10,
+                                                                              width: 5,
                                                                             ),
                                                                             
                                                                               Row(
@@ -771,7 +771,7 @@ class FeedState extends State<Feed> {
                                                                                 ],
                                                                               ),
                                                                             SizedBox(
-                                                                              width: 10,
+                                                                              width: 5,
                                                                             ),
 
 

@@ -39,7 +39,7 @@ class SignIn extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 170),
+                    margin: EdgeInsets.only(top: 100),
                     child: Image.asset(
                       'assets/Logo_White.png',
                       width: 250,
@@ -211,7 +211,7 @@ class SignIn extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           PageRouteBuilder(
                             pageBuilder:

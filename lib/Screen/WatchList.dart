@@ -64,7 +64,7 @@ class WatchListState extends State<WatchList> {
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 0),
                 child: Text(
-                  'Most Watched',
+                  'Market',
                   style: TextStyle(
                     color: Color(0xFF705FBB),
                     fontWeight: FontWeight.bold,

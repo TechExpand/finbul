@@ -50,33 +50,7 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    List date = [
-      '30min',
-      '1hour',
-      '4hour',
-      'Day',
-      'Week',
-      'Month',
-    ];
 
-    SelectedValue(value) {
-      if (value == '30min') {
-        return '30min';
-      } else if (value == '1hour') {
-        return '1h';
-      } else if (value == '4hour') {
-        return '4h';
-      } else if (value == 'Day') {
-        return '1day';
-      } else if (value == 'Week') {
-        return '1week';
-      } else if (value == 'Month') {
-        return '1month';
-      }
-    }
-
-    int selectedIndex = 0;
-    String selectedValue = '30min';
 
     DataProvider provide = Provider.of<DataProvider>(context, listen: false);
     WebServices network = Provider.of<WebServices>(context, listen: false);
@@ -488,60 +462,13 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                 StatefulBuilder(builder: (context, setState) {
                                   return Column(
                                     children: [
-                                      Container(
-                                        margin: EdgeInsets.only(top: 15),
-                                        height: 30,
-                                        child: ListView.builder(
-                                          itemCount: date.length,
-                                          scrollDirection: Axis.horizontal,
-                                          itemBuilder: (context, index) {
-                                            return InkWell(
-                                              onTap: () {
-                                                setState(() {
-                                                  selectedIndex = index;
-                                                  selectedValue = date[index];
-                                                });
-                                                ItemDetailsPage(
-                                                    symbol: widget.data.symbol
-                                                        .toString(),
-                                                    data: SelectedValue(
-                                                        selectedValue));
-                                              },
-                                              child: Container(
-                                                margin:
-                                                    EdgeInsets.only(right: 8),
-                                                height: 30,
-                                                child: Center(
-                                                    child: Text(
-                                                  '${date[index]}',
-                                                  style: TextStyle(
-                                                      color: selectedIndex ==
-                                                              index
-                                                          ? Color(0xFF403477)
-                                                          : Colors.white),
-                                                )),
-                                                width: 70,
-                                                decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                      color: Colors.white),
-                                                  borderRadius:
-                                                      BorderRadius.circular(15),
-                                                  color: selectedIndex == index
-                                                      ? Colors.white
-                                                      : Colors.transparent,
-                                                ),
-                                              ),
-                                            );
-                                          },
-                                        ),
-                                      ),
+
                                       Center(
                                           child: Container(
                                               child: ItemDetailsPage(
                                                   symbol: widget.data.symbol
-                                                      .toString(),
-                                                  data: SelectedValue(
-                                                      selectedValue)))),
+                                                      .toString()
+                                                 ))),
                                     ],
                                   );
                                 }),
@@ -1179,7 +1106,7 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                                                                 ),
 
                                                                                               SizedBox(
-                                                                                                width: 10,
+                                                                                                width: 5,
                                                                                               ),
                                                                                                Row(
                                                                                                   children: [
@@ -1195,7 +1122,7 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                                                                 ),
 
                                                                                               SizedBox(
-                                                                                                width: 10,
+                                                                                                width: 5,
                                                                                               ),
                                                                                               Row(
                                                                                                   children: [
@@ -1210,7 +1137,7 @@ class DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                                                                                                   ],
                                                                                                 ),
                                                                                               SizedBox(
-                                                                                                width: 10,
+                                                                                                width: 5,
                                                                                               ),
                                                                                               Row(
                                                                                                 children: [

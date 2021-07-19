@@ -69,6 +69,20 @@ class ProfilesState extends State<Profiles>
 
     return Scaffold(
       drawer: Draw(),
+      appBar:AppBar(
+          elevation: 0,
+          backgroundColor: Color(0xFF372C6A),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.keyboard_backspace,
+              size: 20,
+              color: Colors.white,
+            ),
+          )
+      ),
       key: scafoldKey,
       backgroundColor: Color(0xFF372C6A),
       body: ListView(
@@ -593,7 +607,7 @@ class ProfilesState extends State<Profiles>
                                                                                             ),
 
                                                                                             SizedBox(
-                                                                                              width: 10,
+                                                                                              width: 5,
                                                                                             ),
                                                                                             Row(
                                                                                               children: [
@@ -612,7 +626,7 @@ class ProfilesState extends State<Profiles>
                                                                                             ),
 
                                                                                             SizedBox(
-                                                                                              width: 10,
+                                                                                              width: 5,
                                                                                             ),
                                                                                             Row(
                                                                                               children: [
@@ -631,7 +645,7 @@ class ProfilesState extends State<Profiles>
                                                                                             ),
 
                                                                                             SizedBox(
-                                                                                              width: 10,
+                                                                                              width: 5,
                                                                                             ),
                                                                                             Row(
                                                                                               children: [
@@ -714,9 +728,12 @@ class ProfilesState extends State<Profiles>
                           }
                       }
                     } else {
-                      return Center(child: CircularProgressIndicator(
+                      return Center(child: Padding(
+                        padding:EdgeInsets.only(top:MediaQuery.of(context).size.height/2.5),
+                        child: CircularProgressIndicator(
      valueColor: new AlwaysStoppedAnimation<Color>(Colors.white10),
-));
+),
+                      ));
                     }
                   },
                 ),

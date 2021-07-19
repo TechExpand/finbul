@@ -71,6 +71,19 @@ class _SeeAllHomeState extends State<SeeAllHome> {
                       left: 20, right: 20, top: 0, bottom: 15),
                   child: Row(
                     children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              right: 4.0),
+                          child: Icon(
+                            Icons.keyboard_backspace_rounded,
+                            color: Color(0xFFFEB904),
+                          ),
+                        ),
+                      ),
                       Text(
                         'Todays Market',
                         style: TextStyle(

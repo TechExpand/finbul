@@ -199,7 +199,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
                  TextButton(
                     onPressed: (){
-                      Navigator.push(context,  PageRouteBuilder(
+                      Navigator.pushReplacement(context,  PageRouteBuilder(
                         pageBuilder: (context, animation, secondaryAnimation){
                         return SignIn();
                       }, transitionsBuilder: (context, animation, secondaryAnimation, child) {

@@ -69,20 +69,20 @@ class ProfilesState extends State<Profiles>
 
     return Scaffold(
       drawer: Draw(),
-      appBar:AppBar(
-          elevation: 0,
-          backgroundColor: Color(0xFF372C6A),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.keyboard_backspace,
-              size: 20,
-              color: Colors.white,
-            ),
-          )
-      ),
+      // appBar:AppBar(
+      //     elevation: 0,
+      //     backgroundColor: Color(0xFF372C6A),
+      //     leading: IconButton(
+      //       onPressed: () {
+      //         Navigator.pop(context);
+      //       },
+      //       icon: Icon(
+      //         Icons.keyboard_backspace,
+      //         size: 20,
+      //         color: Colors.white,
+      //       ),
+      //     )
+      // ),
       key: scafoldKey,
       backgroundColor: Color(0xFF372C6A),
       body: ListView(
@@ -137,7 +137,7 @@ class ProfilesState extends State<Profiles>
                                     ),
                                   ),
                                   Positioned(
-                                    top: 130,
+                                    top: 90,
                                     left: MediaQuery.of(context).size.width *
                                         0.85,
                                     child: Container(
@@ -167,7 +167,7 @@ class ProfilesState extends State<Profiles>
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        left: 14.0, right: 14, top: 20),
+                                        left: 14.0, right: 14, top: 50),
                                     child: Row(
                                       children: [
                                         InkWell(

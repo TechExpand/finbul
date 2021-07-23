@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 
 class DataProvider extends ChangeNotifier {
@@ -195,10 +194,7 @@ class DataProvider extends ChangeNotifier {
   //   }
   // }
 
-  Future<void> _handleCameraAndMic(Permission permission) async {
-    final status = await permission.request();
-    print(status);
-  }
+
 
   setWritingTo(bool val) {
     isWriting = val;
